@@ -1,0 +1,23 @@
+<div acme-navbar></div>
+
+<h1>Login</h1>
+<div class="">
+  <form name="loginForm" ng-submit="ctrl.submit(email, password)" ng-controller="LoginController">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" ng-model="email" required/>
+      <span ng-show="loginForm.email.$touched && loginForm.email.$error.required" class="">Email is required.</span>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" ng-model="password" required/>
+      <span ng-show="loginForm.password.$touched && loginForm.password.$error.required" class="">Password is required.</span>
+    </div>
+
+    <input type="submit" id="submit" value="Login"/>
+  </form>
+
+  <button><a ng-href="#/register">Register</a></button>
+
+</div>

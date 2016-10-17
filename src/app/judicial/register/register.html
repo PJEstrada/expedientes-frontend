@@ -1,0 +1,68 @@
+<div acme-navbar></div>
+
+<h1>Register</h1>
+<div class="">
+  <form name="registerForm" ng-submit="ctrl.submit(username, email, rol, firstName, lastName, dpi, password, confirmPassword)" ng-controller="RegisterController">
+    <div>
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" ng-model="username" required/>
+        <!--<span ng-show="registerForm.username.$touched && registerForm.username.$error.required" class="">Username is required.</span> -->
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" ng-model="email" required/>
+        <!--<span ng-show="registerForm.email.$touched && registerForm.email.$error.required" class="">Email is required.</span> -->
+      </div>
+      <div>
+        <label>Role:</label>
+        <label>
+          <input name="rol" type="radio" ng-model="rol" value="rol1">
+          Rol 1
+        </label>
+        <label>
+          <input name="rol" type="radio" ng-model="rol" value="rol2">
+          Rol 2
+        </label>
+        <label>
+          <input name="rol" type="radio" ng-model="rol" value="rol3">
+          Rol 3
+        </label>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstName" id="firstName" ng-model="firstName" required/>
+        <!--<span ng-show="registerForm.firstName.$touched && registerForm.firstName.$error.required" class="">First Name is required.</span> -->
+      </div>
+      <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastName" id="lastName" ng-model="lastName" required/>
+        <!--<span ng-show="registerForm.lastName.$touched && registerForm.lastName.$error.required" class="">Last Name is required.</span> -->
+      </div>
+      <div>
+        <label for="dpi">DPI:</label>
+        <input type="number" name="dpi" id="dpi" ng-model="dpi" required/>
+        <!--<span ng-show="registerForm.dpi.$touched && registerForm.dpi.$error.required" class="">DPI is required.</span> -->
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" ng-model="password" required/>
+        <!--<span ng-show="registerForm.password.$touched && registerForm.password.$error.required" class="">Password is required.</span> -->
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" ng-model="confirmPassword" required/>
+        <!--<span ng-show="registerForm.confirmPassword.$touched && registerForm.confirmPassword.$error.required" class="">Confirm Password is required.</span> -->
+      </div>
+    </div>
+
+    <input type="submit" id="submit" value="Register"/>
+  </form>
+
+</div>

@@ -1,0 +1,18 @@
+<div acme-navbar></div>
+
+<h2>Dashboard</h2>
+<div class="container" ng-controller="MainController">
+
+  <table style="width:100%">
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+      <th>Date</th>
+    </tr>
+    <tr ng-repeat="exp in ctrl.expedientes" ng-click="select(exp)">
+      <td>{{exp.name}}</td>
+      <td>{{exp.user}}</td>
+      <td>{{exp.date}}</td>
+    </tr>
+  </table>
+</div>
