@@ -5,7 +5,7 @@
       .module('frontendJudicial')
       .controller('MainController', MainController);
   /** @ngInject */
-  function MainController($timeout, webDevTec) {
+  function MainController() {
     var vm = this;
     vm.expedientes = [
       {name: 'Name 1', user: 'User 1', date:'20/30/20'},

@@ -24,6 +24,7 @@ var buildStyles = function() {
   var lessOptions = {
     paths: [
       'bower_components',
+      'bower_components/bootstrap/less',
       path.join(conf.paths.src, '/app')
     ],
     relativeUrls : true

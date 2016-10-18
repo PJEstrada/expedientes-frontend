@@ -6,12 +6,10 @@
 
   angular
     .module('frontendJudicial')
-    .controller('DJ_Controller', DJ_Controller);
+    .controller('DT_Controller', DT_Controller);
 
   /** @ngInject */
-  function DJ_Controller() {
-    var vm = this;
-
+  function DT_Controller() {
   }
 
 })();
