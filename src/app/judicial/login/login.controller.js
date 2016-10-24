@@ -11,12 +11,15 @@
   /** @ngInject */
   function LoginController() {
     var vm = this;
+
     vm.email = '';
     vm.password = '';
-    vm.submit = function (email, password) {
-      vm.email = email;
-      vm.password = password;
+
+    vm.submit = function () {
+      console.log("email", vm.email);
+      console.log("password", vm.password);
     }
+
   }
 
 })();

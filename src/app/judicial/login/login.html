@@ -23,7 +23,7 @@
 -->
 
 <div acme-navbar></div>
-<div class="grid frame">
+<div class="grid frame" ng-controller="LoginController">
   <div class="row middle-xs center-xs main-panel">
     <div class="col xs-6 m-5 l-4">
 
@@ -87,7 +87,7 @@
           color="primary"
           type="submit"
           ng-disabled="loginForm.$invalid"
-          toload="ctrl.submit()">Login</button>
+          ng-click="ctrl.submit()">Login</button>
       </div>
 
       <div class="row center-xs">
