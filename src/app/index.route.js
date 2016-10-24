@@ -25,7 +25,14 @@
             templateUrl: 'app/judicial/register/register.html',
             controller: 'RegisterController',
             controllerAs: 'ctrl'
+        })
+        .state('crear_expediente', {
+            url: '/crear_expediente',
+            templateUrl: 'app/judicial/crear_expediente/crear_expediente.html',
+            controller: 'TabController',
+            controllerAs: 'ctrl'
         });
+
 
     $urlRouterProvider.otherwise('/');
   }

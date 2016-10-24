@@ -234,6 +234,51 @@ hr {
   }
 }
 
+ul {
+  float: left;
+  border-radius: 5px;
+  border: solid 1px rgb(198, 198, 198);
+  padding: 7px 11px;
+  background-color: rgb(248,248,248);
+}
+li {
+  float: left;
+  background-color: rgb(200,200,200);
+  padding: 5px 19px;
+  margin: 5px 2px 5px 0px;
+  color: black;
+  list-style: none;
+}
+li:hover, li:hover a {
+  background-color: @blue-color;
+  color:white;
+}
+li a {
+  text-decoration: none;
+  color: white;
+  font-size: 21px;
+  font-style: italic;
+  text-shadow: 1px 0px 3px rgb(157, 157, 157);
+}
+li:nth-child(1) { border-radius: 4px 0px 0px 4px; margin-left: 1px;}
+li:nth-child(3) { border-radius: 0px 4px 4px 0px;}
+.active {
+  background-color: @blue-color;
+}
+.cb {
+  list-style: none;
+  padding: 10px;
+  display:inline-block;
+  background-color: #000;
+  color: #FFF;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.cb:hover{
+  background-color: #4a4a4a;
+  color: #FFF;
+}
+
 /*finishes styles for login view*/
 
 

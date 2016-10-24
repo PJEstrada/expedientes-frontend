@@ -1,0 +1,114 @@
+<div acme-navbar></div>
+<div>
+  <div id="tabs" ng-controller="TabController">
+    <ul>
+      <li ng-repeat="tab in ctrl.tabs"
+          ng-class="{active:ctrl.isActiveTab(tab.url)}"
+          ng-click="ctrl.onClickTab(tab)">{{tab.title}}</li>
+    </ul>
+    <div id="mainView">
+      <div ng-include="ctrl.current_tab"></div>
+    </div>
+  </div>
+
+  <script type="text/ng-template" id="one.tpl.html">
+    <body id="main_body" >
+      <img id="top" src="top.png" alt="">
+      <div id="form_container">
+        <h1><a>Crear Expediente</a></h1>
+        <form id="form_1166259" class="appnitro"  method="post" action="">
+          <div class="form_description">
+            <h2>Crear Expediente</h2>
+          </div>
+          <ul >
+            <li class="section_break"> <h3>INFORMACIÓN GENERAL</h3> </li>
+            <li id="li_1" >
+              <label class="description" for="element_1">Nombre del operador de Red Local </label>
+              <div>
+                <input id="element_1" name="element_1" class="element text medium" type="text" maxlength="255" value=""/>
+              </div>
+            </li>
+
+            <li id="li_2" >
+              <label class="description" for="element_2">Numero de inscripcion como Operador de Red Local</label>
+              <div>
+                <input id="element_2" name="element_2" class="element text medium" type="text" maxlength="255" value=""/>
+              </div>
+            </li>
+
+            <li id="li_3" >
+              <label class="description" for="element_3">Nombre del Representante Legal </label>
+              <div>
+                <input id="element_3" name="element_3" class="element text medium" type="text" maxlength="255" value=""/>
+              </div>
+            </li>
+
+            <li id="li_4" >
+              <label class="description" for="element_4">Phone </label>
+              <div>
+                <input id="element_4" name="element_4" class="element text medium" type="text" maxlength="255" value=""/>
+              </div>
+            </li>
+
+            <li id="li_7" >
+              <label class="description" for="element_7">Fax </label>
+              <div>
+                <input id="element_7" name="element_7" class="element text medium" type="text" maxlength="255" value=""/>
+              </div>
+            </li>
+
+            <li id="li_8" >
+              <label class="description" for="element_8">Email </label>
+              <div>
+                <input id="element_8" name="element_8" class="element text medium" type="text" maxlength="255" value=""/>
+              </div>
+            </li>
+
+            <li class="section_break"> <h3>SERVICIOS DE TELECOMUNICACIONES</h3> </li>
+            <li id="li_10" >
+              <label class="description">Marque los servicios telefónicos que ofrece o ingrese Otros </label>
+              <span>
+                <input id="element_10_1" name="element_10" class="element radio" type="radio" value="1" />
+                <label class="choice" for="element_10_1">Telefonía Fija</label>
+                <input id="element_10_2" name="element_10" class="element radio" type="radio" value="2" />
+                <label class="choice" for="element_10_2">Telefonía Móvil</label>
+                <input id="element_10_3" name="element_10" class="element radio" type="radio" value="3" />
+                <label class="choice" for="element_10_3">Telefonía Vía Satélite</label>
+		          </span>
+            </li>
+
+            <li id="li_9" >
+              <label class="description" for="element_9">Otros: </label>
+              <div>
+                <input id="element_9" name="element_9" class="element text medium" type="text" maxlength="255" value=""/>
+              </div>
+            </li>
+
+          <li class="buttons">
+            <input type="hidden" name="form_id" value="1166259" />
+            <input id="saveForm" class="button_text" type="submit" name="submit" value="Siguiente" />
+          </li>
+
+        </ul>
+      </form>
+
+      </div>
+    </body>
+  </script>
+
+  <script type="text/ng-template" id="two.tpl.html">
+    <div id="viewTwo">
+      <h1>View Two</h1>
+      <p>Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.</p>
+    </div>
+  </script>
+
+  <script type="text/ng-template" id="three.tpl.html">
+    <div id="viewThree">
+      <h1>View Three</h1>
+      <p>In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.</p>
+    </div>
+  </script>
+</div>
+
+
