@@ -235,6 +235,8 @@ hr {
   }
 }
 
+/*finishes styles for login view*/
+
 ul {
   float: left;
   border-radius: 5px;
@@ -249,9 +251,17 @@ li {
   margin: 5px 2px 5px 0px;
   color: black;
   list-style: none;
+
+  .description{
+    color: black;
+    &.hover{
+      color: white;
+    }
+  }
+
 }
 li:hover, li:hover a {
-  background-color: @blue-color;
+  //background-color: @blue-color;
   color:white;
 }
 li a {
@@ -280,7 +290,7 @@ li:nth-child(3) { border-radius: 0px 4px 4px 0px;}
   color: #FFF;
 }
 
-/*finishes styles for login view*/
+
 
 
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
