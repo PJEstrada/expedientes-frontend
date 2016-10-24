@@ -3,6 +3,17 @@
 // bower:less
 // endbower
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Ubuntu');
+
+@main-font-family: 'Ubuntu', sans-serif;
+@second-font-family: 'Montserrat', sans-serif;
+
+@blue-color:                      #014495;
+@blue-second-color:               #023077;
+@red-color:                       #F51616;
+@input-color:                     #0358db;
+@button-color:                    #034fc4;
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -12,6 +23,7 @@
 
 body {
   margin: 0;
+  font-family: @main-font-family;
 }
 
 a {
@@ -111,6 +123,119 @@ a {
 hr {
   clear: both;
 }
+
+
+/*Styles for login view*/
+.main-form{
+  background-color: @blue-second-color;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin: auto;
+  max-width: 475px;
+  padding: 50px;
+
+  .logo{
+    text-align: center;
+    img{
+      height: 200px;
+    }
+  }
+
+  .input-wrapper{
+    background: none;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+
+    .input-mark{
+      color: @input-color;
+      font-size: 1rem;
+    }
+
+    .input-mark-error{
+      color: #922b30;
+      font-size: 1.4rem;
+    }
+
+    .input-mark-error.ng-enter,
+    .input-mark-error.ng-leave.ng-leave-active,
+    .input-mark.ng-enter,
+    .input-mark.ng-leave.ng-leave-active{
+      opacity: 0;
+      top: -15px;
+      transition: all linear 0.5s;
+    }
+
+    .input-mark-error.ng-leave,
+    .input-mark-error.ng-enter.ng-enter-active,
+    .input-mark.ng-leave,
+    .input-mark.ng-enter.ng-enter-active{
+      opacity:1;
+      top:0;
+    }
+
+    input{
+      .placeholder(fadeout(@input-color, 10%));
+      background: none;
+      border: none;
+      border-bottom: 1px solid @input-color;
+      border-radius: 0;
+      color: @input-color;
+      font-family: @main-font-family;
+      transition: @faster;
+
+      &:focus{
+        .placeholder(fadeout(@input-color, 40%));
+        border-bottom-color: lighten(@input-color, 15%);
+      }
+
+      &.ng-invalid{
+        border-bottom-color: #922b30;
+        transition: all linear 0.5s;
+
+        &.ng-empty{
+          border-bottom: 1px solid @input-color;
+        }
+      }
+
+      &.ng-pristine{
+        border-bottom: 1px solid @input-color;
+      }
+    }
+
+    .input-alert{
+      color: @input-color;
+    }
+  }
+
+  .main-button{
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem;
+    background-color: @button-color;
+    border: none;
+    color: white;
+    font-family: @main-font-family;
+  }
+
+}
+
+.final-link{
+  color: @blue-color;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  text-decoration: underline;
+  transition: @fastest;
+
+  &:hover{
+    color: lighten(@blue-color, 5%);
+  }
+}
+
+/*finishes styles for login view*/
+
 
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
    all your less files automatically */
