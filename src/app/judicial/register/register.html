@@ -3,7 +3,7 @@
   <div class="row center-xs">
     <div class="col xs-10 m-8 ">
       <h1>Register</h1>
-      <form name="registerForm" ng-submit="ctrl.submit(username, email, rol, firstName, lastName, dpi, password, confirmPassword)" ng-controller="RegisterController">
+      <form class="col content form-register" name="registerForm" ng-submit="ctrl.submit(username, email, rol, firstName, lastName, dpi, password, confirmPassword)" ng-controller="RegisterController">
 
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" ng-model="username" required/>
