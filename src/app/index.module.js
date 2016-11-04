@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('frontendJudicial', ['ngResource', 'ui.router', 'weed']);
+    .module('frontendJudicial', ['ngResource', 'ui.router', 'weed', 'schemaForm']);
 
 })();

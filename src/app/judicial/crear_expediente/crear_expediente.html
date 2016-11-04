@@ -1,86 +1,16 @@
 <div acme-navbar></div>
+
 <div>
-  <div id="tabs" ng-controller="TabController">
-    <ul>
-      <li ng-repeat="tab in ctrl.tabs"
-          ng-class="{active:ctrl.isActiveTab(tab.url)}"
-          ng-click="ctrl.onClickTab(tab)">{{tab.title}}</li>
-    </ul>
-    <div id="mainView">
-      <div ng-include="ctrl.current_tab"></div>
+  <div class="row center-xs" id="tabs" ng-controller="TabController">
+    <div class="col xs-8">
+    <!-- http://schemaform.io/examples/bootstrap-example.html -->
+      <form name="FormTab1"
+            sf-schema="ctrl.schema"
+            sf-form="ctrl.form"
+            sf-model="ctrl.model"
+            ng-submit="ctrl.onSubmit(FormTab1)"></form>
     </div>
   </div>
-
-  <script type="text/ng-template" id="one.tpl.html">
-    <body id="main_body" ng-controller="TabController">
-      <div id="form_container"
-           ng-init="general_information=ctrl.current_tab_info.data[0];
-           tele_services=ctrl.current_tab_info.data[1]">
-
-        <h1><a>{{ctrl.title}}</a></h1>
-        <form id="" class=""  method="post" action="">
-          <ul>
-            <!-- Informacion General -->
-            <li class="section_break">
-              <h3>{{general_information.name}}</h3>
-            </li>
-            <li id="general_{{$index}}" class="description" ng-repeat="element in general_information.elements">
-              <label class="general_information.class_general_name">
-                {{element}}
-                <input class=""  type="text" maxlength="255" value=""/>
-              </label>
-            </li>
-
-            <!-- Telecomunicaciones -->
-            <li class="section_break">
-              <h3>{{tele_services.name}}</h3>
-            </li>
-            <li>
-              <label class="description">{{tele_services.description}}</label>
-              <span ng-repeat="element in tele_services.elements">
-                <label class="choice">
-                  {{element}}
-                  <input class="element radio" type="radio" value=$index />
-                </label>
-		          </span>
-            </li>
-
-            <!-- Otros -->
-            <li id="li_9" >
-              <label class="description">
-                Otros:
-                <input class="element text medium" type="text" maxlength="255" value=""/>
-              </label>
-              <div>
-              </div>
-            </li>
-
-            <!-- Buttons -->
-            <li class="buttons">
-              <input type="hidden" name="form_id" value="1166259" />
-              <input class="button_text" type="submit" name="submit" value="{{ctrl.current_tab_info.button_title}}" />
-            </li>
-
-        </ul>
-      </form>
-
-      </div>
-    </body>
-  </script>
-
-  <script type="text/ng-template" id="two.tpl.html">
-    <div id="viewTwo">
-      <h1>View Two</h1>
-      <p>Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.</p>
-    </div>
-  </script>
-
-  <script type="text/ng-template" id="three.tpl.html">
-    <div id="viewThree">
-      <h1>View Three</h1>
-      <p>In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.</p>
-    </div>
-  </script>
 </div>
 
 
