@@ -30,6 +30,17 @@ a {
   text-decoration: none;
 }
 
+h1, h2, h3, h4, h5, h6{
+  display: block;
+  clear: both;
+  font-family: @main-font-family !important;
+}
+
+.form-register{
+  background-color: #ebebeb;
+  border-radius: 15px;
+}
+
 .container {
   width: 1170px;
   margin-right: auto;
@@ -235,6 +246,8 @@ hr {
   }
 }
 
+/*finishes styles for login view*/
+
 ul {
   float: left;
   border-radius: 5px;
@@ -242,23 +255,45 @@ ul {
   padding: 7px 11px;
   background-color: rgb(248,248,248);
 }
+label{
+  font-family: @second-font-family;
+}
 li {
   float: left;
-  background-color: rgb(200,200,200);
   padding: 5px 19px;
   margin: 5px 2px 5px 0px;
-  color: black;
   list-style: none;
+  display: block;
+  color: black;
+
+  &.options{
+    font-size: 1.5em;
+    color: black;
+    &.active{
+      color: white;
+    }
+  }
+
+  &.description, &.buttons{
+      clear: both;
+      button{
+        font-family: @second-font-family;
+      }
+  }
+  label{
+    font-family: @second-font-family;
+  }
+
 }
-li:hover, li:hover a {
-  background-color: @blue-color;
-  color:white;
-}
+
+
+
 li a {
   text-decoration: none;
   color: white;
   font-size: 21px;
   font-style: italic;
+  font-family: @main-font-family;
   text-shadow: 1px 0px 3px rgb(157, 157, 157);
 }
 li:nth-child(1) { border-radius: 4px 0px 0px 4px; margin-left: 1px;}
@@ -280,7 +315,7 @@ li:nth-child(3) { border-radius: 0px 4px 4px 0px;}
   color: #FFF;
 }
 
-/*finishes styles for login view*/
+
 
 
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
