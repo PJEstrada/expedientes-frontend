@@ -11,18 +11,17 @@
 @blue-color:                      #014495;
 @blue-second-color:               #023077;
 @red-color:                       #F51616;
-@input-color:                     #0358db;
+@input-color:                     #035  8db;
 @button-color:                    #034fc4;
 
 .browsehappy {
-  margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
 }
 
 body {
-  margin: 0;
+  margin: 0 0 2em;
   font-family: @main-font-family;
 }
 
@@ -100,13 +99,13 @@ h1, h2, h3, h4, h5, h6{
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  border: 1px solid transparent;
   color: white;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: white;
+  border: 1px solid black;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
+  margin: 1.7em;
   border-radius: 6px;
 }
 
@@ -253,13 +252,13 @@ ul {
   border-radius: 5px;
   border: solid 1px rgb(198, 198, 198);
   padding: 7px 11px;
+  margin-right: 1.5em;
   background-color: rgb(248,248,248);
 }
 label{
-  font-family: @second-font-family;
+  font-family: @main-font-family;
 }
 li {
-  float: left;
   padding: 5px 19px;
   margin: 5px 2px 5px 0px;
   list-style: none;
@@ -277,11 +276,11 @@ li {
   &.description, &.buttons{
       clear: both;
       button{
-        font-family: @second-font-family;
+        font-family: @main-font-family;
       }
   }
   label{
-    font-family: @second-font-family;
+    font-family: @main-font-family;
   }
 
 }
@@ -290,16 +289,30 @@ li {
 
 li a {
   text-decoration: none;
-  color: white;
+  color: black;
   font-size: 21px;
-  font-style: italic;
   font-family: @main-font-family;
-  text-shadow: 1px 0px 3px rgb(157, 157, 157);
+
+}
+
+fieldset {
+  background-color: whitesmoke;
+  padding: 1.5em;
+  legend{
+    font-family: @main-font-family;
+    font-size: 2em;
+  }
+  label{
+    font-family: @main-font-family;
+    font-size: 1em;
+    color: #222200;
+  }
 }
 li:nth-child(1) { border-radius: 4px 0px 0px 4px; margin-left: 1px;}
 li:nth-child(3) { border-radius: 0px 4px 4px 0px;}
-.active {
-  background-color: @blue-color;
+li.active {
+  color: black;
+  background-color: #4a4a4a;
 }
 .cb {
   list-style: none;
@@ -313,6 +326,10 @@ li:nth-child(3) { border-radius: 0px 4px 4px 0px;}
 .cb:hover{
   background-color: #4a4a4a;
   color: #FFF;
+}
+
+button{
+  background-color: black;
 }
 
 

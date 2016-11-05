@@ -16,14 +16,14 @@
         'type': 'tabs',
         'htmlClass': 'options',
         'tabs': [{
-          'title': 'Uno',
+          'title': 'UNO',
           'items': [{
               'type': 'fieldset',
-              'title': 'Crear Expediente',
+              'title': 'RED DE TELEFONÍA FIJA',
               'htmlClass': 'row center-xs',
               'items': [{
                 'type': 'fieldset',
-                'title': 'Información General',
+                'title': 'INFORMACIÓN GENERAL',
                 'htmlClass': 'row center-xs',
                 'items': [
                   'nombre_operador',
@@ -35,7 +35,7 @@
                 ]
               },{
                 'type': 'fieldset',
-                'title': 'Servicios de Telecomunicaciones',
+                'title': 'SERVICIOS DE TELECOMUNICACIONES',
                 'htmlClass': 'row center-xs',
                 'items': [
                   'servicios_telefonicos',
@@ -44,14 +44,14 @@
               }]
           }]
         },{
-          'title': 'Dos',
+          'title': 'DOS',
           'items': [{
             'type': 'fieldset',
             'title': 'RED DE TELEFONÍA FIJA',
             'htmlClass': 'row center-xs',
             'items': [{
                 'type': 'fieldset',
-                'title': 'Información General',
+                'title': 'INFORMACIÓN GENERAL',
                 'htmlClass': 'row center-xs',
                 'items': [
                   'cantidad_centrales_locales_conmutacion',
@@ -62,7 +62,7 @@
                 ]
             },{
               'type': 'fieldset',
-              'title': 'Servicios de valor agregado',
+              'title': 'SERVICIOS DE VALOR AGREGADO',
               'htmlClass': 'row center-xs',
               'items': [
                 'cantidad_lineas_ISDN_basico',
@@ -71,7 +71,7 @@
               ]
             },{
               'type': 'fieldset',
-              'title': 'Servicios de valor agregado',
+              'title': 'TRÁFICO',
               'htmlClass': 'row center-xs',
               'items': [
                 'trafico_red_movil_minutos',
@@ -87,7 +87,7 @@
               ]
             },{
               'type': 'fieldset',
-              'title': 'Tarifas',
+              'title': 'TARIFAS',
               'description': 'Se debe indicar el precio por 1 minuto de conversación, expresado en Quetzales',
               'htmlClass': 'row center-xs',
               'items': [
@@ -103,7 +103,7 @@
               ]
             },{
               'type': 'fieldset',
-              'title': 'Equipos de Conmutación',
+              'title': 'EQUIPOS DE CONMUTACIÓN',
               'htmlClass': 'row center-xs',
               'items': [
                 'nombre_equipo_conmutacion',
@@ -121,14 +121,14 @@
             }]
           }]
         },{
-          'title': 'Tres',
+          'title': 'TRES',
           'items': [{
             'type': 'fieldset',
             'title': 'RED DE TELEFONÍA FIJA',
             'htmlClass': 'row center-xs',
             'items': [{
               'type': 'fieldset',
-              'title': 'Información General',
+              'title': 'INFORMACIÓN GENERAL',
               'htmlClass': 'row center-xs',
               'items': [
                 'tecnologias_utilizadas',
@@ -137,7 +137,7 @@
               ]
             },{
               'type': 'fieldset',
-              'title': 'Tráfico',
+              'title': 'TRÁFICO',
               'htmlClass': 'row center-xs',
               'items': [
                 'trafico_red_movil_a_red_fija',
@@ -152,8 +152,8 @@
               ]
             },{
               'type': 'fieldset',
-              'title': 'Tarifas máximas al público de telefonía celular móvil, por 1 minuto de conversación, en Quetzales.',
-              'description': 'Se debe indicar el precio por 1 minuto de conversación, expresado en Quetzales',
+              'title': 'TARIFAS MÁXIMAS',
+              'description': 'Tarifas máximas al público de telefonía celular móvil, por 1 minuto de conversación, en Quetzales.',
               'htmlClass': 'row center-xs',
               'items': [
                 'telefonia_celular_analogica',
@@ -165,7 +165,7 @@
               ]
             },{
               'type': 'fieldset',
-              'title': 'Equipos de Conmutación',
+              'title': 'EQUIPOS DE CONMUTACIÓN',
               'htmlClass': 'row center-xs',
               'items': [
                 'nombre_equipo_conmutacion_2',
@@ -184,7 +184,7 @@
       }]
     },{
       type: "submit",
-      title: "Siguiente"
+      title: "SIGUIENTE"
     }];
 
     vm.schema = {
