@@ -120,6 +120,66 @@
               ]
             }]
           }]
+        },{
+          'title': 'Tres',
+          'items': [{
+            'type': 'fieldset',
+            'title': 'RED DE TELEFONÍA FIJA',
+            'htmlClass': 'row center-xs',
+            'items': [{
+              'type': 'fieldset',
+              'title': 'Información General',
+              'htmlClass': 'row center-xs',
+              'items': [
+                'tecnologias_utilizadas',
+                'imsi_en_operacion',
+                'irm_en_operacion'
+              ]
+            },{
+              'type': 'fieldset',
+              'title': 'Tráfico',
+              'htmlClass': 'row center-xs',
+              'items': [
+                'trafico_red_movil_a_red_fija',
+                'trafico_red_fija_a_red_movil',
+                'trafico_generado_propia_red',
+                'trafico_generado_redes_nacionales',
+                'trafico_internacional_generado_red',
+                'trafico_internacional_terminado_red',
+                'trafico_promedio_abonado',
+                'tiempo_promedio_llamada_saliente',
+                'tiempo_promedio_llamada_entrante'
+              ]
+            },{
+              'type': 'fieldset',
+              'title': 'Tarifas máximas al público de telefonía celular móvil, por 1 minuto de conversación, en Quetzales.',
+              'description': 'Se debe indicar el precio por 1 minuto de conversación, expresado en Quetzales',
+              'htmlClass': 'row center-xs',
+              'items': [
+                'telefonia_celular_analogica',
+                'telefonia_celular_digital',
+                'tecnologia_analogica_saliente_plena',
+                'tecnologia_analogica_saliente_reducida',
+                'tecnologia_digital_saliente_plena',
+                'tecnologia_digital_saliente_reducida'
+              ]
+            },{
+              'type': 'fieldset',
+              'title': 'Equipos de Conmutación',
+              'htmlClass': 'row center-xs',
+              'items': [
+                'nombre_equipo_conmutacion_2',
+                'fabricante_modelo_2',
+                'cantidad_circuitos_senal_r2_2',
+                'cantidad_circuitos_senal_7_2',
+                'capacidad_nominal_2',
+                'tipo_central_2',
+                'codigo_punto_senal_asignado_2',
+                'numero_terminales_operacion_2',
+                'ubicacion_central_2'
+              ]
+            }]
+          }]
         }]
       }]
     },{
@@ -347,8 +407,133 @@
         // TODO diagrama esquematico
         // TAB 3
         'tecnologias_utilizadas': {
-          'title': ''
-        }
+          'title': 'Tecnologias Utilizadas',
+          'type': 'array',
+          'items': {
+            'type': 'string',
+            enum: [
+              'AMPS',
+              'NAMPS',
+              'TDMA',
+              'CDMA',
+              'GSM',
+              'Otras'
+            ]
+          }
+        },
+        'imsi_en_operacion': {
+          'title': 'IMSI en operación (de acuerdo a Recomendación de UIT E.212)',
+          'type': 'string'
+        },
+        'irm_en_operacion': {
+          'title': 'IRM en operación (de acuerdo a IFAST)',
+          'type': 'string'
+        },
+        'trafico_red_movil_a_red_fija': {
+          'title': 'Tráfico generado de su Red Móvil a Redes Fijas, en minutos',
+          'type': 'number'
+        },
+        'trafico_red_fija_a_red_movil': {
+          'title': 'Tráfico generado de su Red Móvil a Redes Móviles, en minutos',
+          'type': 'number'
+        },
+        'trafico_generado_propia_red': {
+          'title': 'Tráfico generado y terminado dentro de su propia red, en minutos',
+          'type': 'number'
+        },
+        'trafico_generado_redes_nacionales': {
+          'title': 'Total de tráfico generado hacia todas las redes nacionales, en minutos.',
+          'type': 'number'
+        },
+        'trafico_internacional_generado_red': {
+          'title': 'Total de tráfico internacional generado en su red (Sin considerar el OPI que lo cursó)',
+          'type': 'number'
+        },
+        'trafico_internacional_terminado_red': {
+          'title': 'Total de tráfico internacional terminado en su red (Sin considerar el OPI que lo cursó)',
+          'type': 'number'
+        },
+        'trafico_promedio_abonado': {
+          'title': 'Tráfico promedio por abonado (erlangs)',
+          'type': 'number'
+        },
+        'tiempo_promedio_llamada_saliente': {
+          'title': 'Tiempo promedio de duración de una llamada saliente (minutos, segundos)',
+          'type': 'number'
+        },
+        'tiempo_promedio_llamada_entrante': {
+          'title': 'Tiempo promedio de duración de una llamada entrante (minutos, segundos)',
+          'type': 'number'
+        },
+        'telefonia_celular_analogica': {
+          'title': 'Telefonía celular de tecnología analógica',
+          'type': 'number'
+        },
+        'telefonia_celular_digital': {
+          'title': 'Telefonía celular de tecnología digital',
+          'type': 'number'
+        },
+        'tecnologia_analogica_saliente_plena': {
+          'title': 'Tecnología analógica precio máximo, llamada nacional saliente (tarifa plena)',
+          'type': 'number'
+        },
+        'tecnologia_analogica_saliente_reducida': {
+          'title': 'Tecnología analógico precio máximo, llamada nacional saliente (tarifa reducida)',
+          'type': 'number'
+        },
+        'tecnologia_digital_saliente_plena': {
+          'title': 'Tecnología digital precio máximo, llamada nacional saliente (tarifa plena)',
+          'type': 'number'
+        },
+        'tecnologia_digital_saliente_reducida': {
+          'title': 'Tecnología digital precio máximo, llamada nacional saliente (tarifa reducida)',
+          'type': 'number'
+        },
+        // TODO adjuntar archivo
+        'nombre_equipo_conmutacion_2': {
+          'title': 'Nombre que identifica al equipo de conmutación',
+          'type': 'string'
+        },
+        'cantidad_circuitos_senal_r2_2': {
+          'title': 'Cantidad de circuitos en operación, Señalización R2',
+          'type': 'number'
+        },
+        'cantidad_circuitos_senal_7_2': {
+          'title': 'Cantidad de circuitos en operación, Señalización No.7',
+          'type': 'number'
+        },
+        'capacidad_nominal_2': {
+          'title': 'Capacidad Nominal (cantidad de líneas)',
+          'type': 'number'
+        },
+        'tipo_central_2': {
+          'title': 'Tipo de central',
+          'type': 'array',
+          'items': {
+            'type': 'string',
+            enum: [
+              'Local',
+              'Tránsito',
+              'Combinada',
+              'Internacional'
+            ]
+          }
+        },
+        'codigo_punto_senal_asignado_2': {
+          'title': 'Código de Punto de Señalización Nacional asignado (NSPC)',
+          'type': 'number'
+        },
+        'numero_terminales_operacion_2': {
+          'title': 'Número de terminales de señalización, en operación',
+          'type': 'number'
+        },
+        'ubicacion_central_2': {
+          'title': 'Ubicación de la central (Depto y Municipio)',
+          'type': 'string'
+        },
+        // TODO archivo adicional
+        // TODO diagrama esquematico
+        // TODO adjuntar plot cobertura
       },
       'required': [
         '*'
