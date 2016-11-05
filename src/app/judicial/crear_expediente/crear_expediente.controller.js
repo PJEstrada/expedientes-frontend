@@ -342,10 +342,13 @@
         'ubicacion_central': {
           'title': 'Ubicación de la central (Depto y Municipio)',
           'type': 'string'
-        }
+        },
         // TODO archivo adicional
         // TODO diagrama esquematico
-
+        // TAB 3
+        'tecnologias_utilizadas': {
+          'title': ''
+        }
       },
       'required': [
         '*'
