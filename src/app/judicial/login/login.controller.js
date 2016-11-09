@@ -9,17 +9,16 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController() {
+  function LoginController($log) {
     var vm = this;
 
     vm.email = '';
     vm.password = '';
 
     vm.submit = function () {
-      console.log("email", vm.email);
-      console.log("password", vm.password);
+      $log.log("email", vm.email);
+      $log.log("password", vm.password);
     }
-
   }
 
 })();

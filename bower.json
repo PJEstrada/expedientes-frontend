@@ -18,7 +18,8 @@
     "weed": "edoo-project/weed"
   },
   "devDependencies": {
-    "angular-mocks": "~1.5.3"
+    "angular-mocks": "~1.5.3",
+    "angular-ui-tinymce": "^0.0.17"
   },
   "resolutions": {
     "angular": "~1.5.3"

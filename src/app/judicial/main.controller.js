@@ -8,13 +8,13 @@
   var main_url = 'http://todobacke-elasticl-195uzltps026i-1470655479.us-west-2.elb.amazonaws.com/expedientes-asesor/';
 
   /** @ngInject */
-  function MainController(Request) {
+  function MainController($log, Request) {
     var vm = this;
 
     var asesor_id = 1;
     var url = main_url + asesor_id + '/';
 
-    // vm.expedientes = get(Request, url);
+    vm.expedientes = get(Request, url);
 
     vm.expedientes = [
       {id: 1, name: 'Name 1', user: 'User 1', date:'20/30/20'},
@@ -24,7 +24,7 @@
     ];
 
     vm.remove_expediente = function (id) {
-      console.log(id);
+      $log.log(id);
     }
   }
 
@@ -32,18 +32,8 @@
     return Request.get(url)
       .set('Accept', 'application/json')
       .end(function (err, res) {
-        console.log(url);
-        console.log(err);
-        console.log(res);
-      });
-  }
 
-  function post(Request, url, data) {
-    return Request.post(url)
-      .set('Content-Type', 'application/json')
-      .set('Accept', 'application/json')
-      .send(data)
-      .end();
+      });
   }
 
 })();

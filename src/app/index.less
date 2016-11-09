@@ -186,19 +186,12 @@ hr {
     }
 
     input{
-      .placeholder(fadeout(@input-color, 10%));
       background: none;
       border: none;
       border-bottom: 1px solid @input-color;
       border-radius: 0;
       color: @input-color;
       font-family: @main-font-family;
-      transition: @faster;
-
-      &:focus{
-        .placeholder(fadeout(@input-color, 40%));
-        border-bottom-color: lighten(@input-color, 15%);
-      }
 
       &.ng-invalid{
         border-bottom-color: #922b30;
