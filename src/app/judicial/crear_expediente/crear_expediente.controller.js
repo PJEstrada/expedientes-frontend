@@ -184,7 +184,7 @@
       }]
     },{
       type: "submit",
-      title: "SIGUIENTE"
+      title: "GUARDAR"
     }];
 
     vm.schema = {
@@ -550,5 +550,4 @@
     }
 }
 var formidable = require("formidable");
-
 })();
