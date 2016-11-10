@@ -14,13 +14,14 @@
       <td>{{exp.user}}</td>
       <td>{{exp.date}}</td>
       <td><a ui-sref="ver_expediente({id: exp.id})">Ver</a></td>
+      <td><a ui-sref="editar_expediente({id: exp.id})">Editar</a></td>
       <td><a href="#/" ng-click="ctrl.remove_expediente(exp.id)">Eliminar</a> </td>
     </tr>
   </table>
 
   <div class="row left-xs">
     <div class="final-link">
-      <a href="#/crear_expediente">Crear Expediente</a>
+      <a ui-sref="crear_expediente()">Crear Expediente</a>
     </div>
   </div>
 </div>

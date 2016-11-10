@@ -24,6 +24,7 @@
     ];
 
     vm.remove_expediente = function (id) {
+
       $log.log(id);
     }
   }
@@ -32,7 +33,8 @@
     return Request.get(url)
       .set('Accept', 'application/json')
       .end(function (err, res) {
-
+        console.log(err);
+        console.log(res);
       });
   }
 

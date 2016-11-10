@@ -3,10 +3,10 @@
 
   angular
     .module('frontendJudicial')
-    .controller('TabController', TabController);
+    .controller('CrearExpedienteController', CrearExpedienteController);
 
   /** @ngInject */
-  function TabController() {
+  function CrearExpedienteController() {
     var vm = this;
 
     vm.form = [{

@@ -28,14 +28,20 @@
       })
       .state('crear_expediente', {
         url: '/crear_expediente',
-        templateUrl: 'app/judicial/crear_expediente/crear_expediente.html',
-        controller: 'TabController',
+        templateUrl: 'app/judicial/expediente/crear_expediente/crear_expediente.html',
+        controller: 'CrearExpedienteController',
         controllerAs: 'ctrl'
       })
       .state('ver_expediente', {
         url: '/ver_expediente/{id}',
-        templateUrl: 'app/judicial/ver_expediente/ver_expediente.html',
+        templateUrl: 'app/judicial/expediente/ver_expediente/ver_expediente.html',
         controller: 'VerExpedienteController',
+        controllerAs: 'ctrl'
+      })
+      .state('editar_expediente', {
+        url: '/editar_expediente/{id}',
+        templateUrl: 'app/judicial/expediente/editar_expediente/editar_expediente.html',
+        controller: 'EditarExpedienteController',
         controllerAs: 'ctrl'
       });
 
