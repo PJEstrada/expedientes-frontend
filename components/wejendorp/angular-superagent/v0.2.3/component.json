@@ -1,0 +1,29 @@
+{
+  "name": "angular-superagent",
+  "description": "Angular wrapper for Superagent",
+  "version": "0.2.3",
+  "keywords": [
+    "angular",
+    "superagent",
+    "http",
+    "xhr"
+  ],
+  "dependencies": {
+    "visionmedia/superagent": "*",
+    "component/emitter": "*"
+  },
+  "development": {
+    "dependencies": {
+      "visionmedia/debug": "0.7.4",
+      "ianstormtaylor/assert": "*",
+      "chaijs/chai": "*"
+    }
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "repository": "wejendorp/angular-superagent",
+  "resolved": "a90e9eaefbe55da5f5df762d05d7598cfa6483cc"
+}
