@@ -16,9 +16,14 @@
         'type': 'tabs',
         'htmlClass': 'options',
         'tabs': [{
-          'title': 'UNO',
+          'title': 'PRINCIPAL',
           'items': [{
-              'type': 'fieldset',
+            'type': 'tabs',
+            'htmlClass': 'options',
+            'tabs': [{
+            'title': 'Información General',
+            'items': [{
+               'type': 'fieldset',
               'title': 'RED DE TELEFONÍA FIJA',
               'htmlClass': 'row center-xs',
               'items': [{
@@ -41,10 +46,11 @@
                   'servicios_telefonicos',
                   'otros_servicios_telefonicos'
                 ]
-              }]
-          }]
-        },{
-          'title': 'DOS',
+              }]  
+            }]
+            }//FIN TAB 1 DE TAB 1
+            ,{
+          'title': 'Red Fija',
           'items': [{
             'type': 'fieldset',
             'title': 'RED DE TELEFONÍA FIJA',
@@ -120,9 +126,14 @@
               ]
             }]
           }]
-        },{
-          'title': 'TRES',
+
+
+
+        }//FIN TAB 2 DE TAB 1
+        ,{
+          'title': 'Red Movil',
           'items': [{
+
             'type': 'fieldset',
             'title': 'RED DE TELEFONÍA FIJA',
             'htmlClass': 'row center-xs',
@@ -169,7 +180,7 @@
               'htmlClass': 'row center-xs',
               'items': [
                 'nombre_equipo_conmutacion_2',
-                'fabricante_modelo_2',
+                'fabricante_modelo2',
                 'cantidad_circuitos_senal_r2_2',
                 'cantidad_circuitos_senal_7_2',
                 'capacidad_nominal_2',
@@ -181,6 +192,23 @@
             }]
           }]
         }]
+          }]
+        },{
+          'title': 'Anexo D Red Fija',
+          'items': [{}]
+
+        },{
+          'title': 'Anexo E Red Movil',
+          'items': [{}]
+
+        },{
+          'title': 'Anexo F Via Satelite',
+          'items': [{}]
+        },{
+          'title': 'Anexo I Numeración',
+          'items': [{}]
+        }
+        ]
       }]
     },{
       type: "submit",
@@ -348,7 +376,11 @@
           'type': 'string'
         },
         'fabricante_modelo': {
-          'title': 'Fabriccante y modelo',
+          'title': 'Fabricante y modelo',
+          'type': 'string'
+        },
+         'fabricante_modelo2': {
+          'title': 'Fabricante y modelo',
           'type': 'string'
         },
         'cantidad_circuitos_senal_r2': {
