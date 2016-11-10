@@ -5,25 +5,23 @@
     .module('frontendJudicial')
     .controller('VerExpedienteController', VerExpedienteController);
 
-  var main_url = 'http://todobacke-elasticl-195uzltps026i-1470655479.us-west-2.elb.amazonaws.com/expediente/';
+  var main_url = 'http://todobacke-elasticl-le2gx6ueslwo-2118698052.us-west-2.elb.amazonaws.com/expediente/';
 
   /** @ngInject */
-  function VerExpedienteController($log, Request, $state) {
+  function VerExpedienteController($log, $http, $state) {
     var vm = this;
 
     vm.expediente_id = $state.params.id;
 
     var url = main_url + vm.expediente_id + '/';
-    vm.information = get(Request, url);
+    vm.information = get($http, url);
 
-    $log.log(vm.information);
   }
 
-  function get(Request, url) {
-    return Request.get(url)
-      .set('Accept', 'application/json')
-      .end(function (err, res) {
-        console.log(url);
+  function get($http, url) {
+    $http.jsonp(url)
+      .success(function (data) {
+        return data;
       });
   }
 })();
