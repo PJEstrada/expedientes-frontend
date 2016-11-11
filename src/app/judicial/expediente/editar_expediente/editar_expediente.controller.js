@@ -23,7 +23,7 @@
 
     if (AuthService.isLoggedIn()) {
       vm.get = function () {
-        $http.get(main_url + 'expediente-asesor/' + vm.asesor_id)
+        $http.get(main_url + 'expediente/' + vm.asesor_id)
           .success(function (data) {
             vm.information = data;
             $log.log(vm.information);
@@ -45,34 +45,32 @@
       theme : 'modern'
     };
 
-    var opinion_req = post_req(
-      main_url + 'crear-opinion/',
-      {
-        'asesor': vm.asesor_id,
-        'descripcion': vm.tinymce_model_opinion
-      });
+    vm.upload_info = function () {
+      $http(post_req(main_url + 'crear-opinion/', {
+          'asesor': vm.asesor_id,
+          'expediente': vm.expediente_id,
+          'descripcion': vm.tinymce_model_opinion
+        })).then(function (response) {
+          $log.log('Crear Opinion: \n' + response['statusText']);
 
-    var dictamen_req = post_req(
-      main_url + 'crear-dictamen/',
-      {
-      'expediente': vm.expediente_id,
-      'descripcion': vm.tinymce_model_dictamen,
-      'campo_procuraduria': vm.tinymce_model_dictamen
-      });
-
-    var providencia_req = post_req(
-      main_url + 'emitir-providencia/',
-      {
-      'expediente': vm.expediente_id,
-      'asunto': 'asuntob',
-      'descripcion': vm.tinymce_model_providencia
-    });
-
-    $http(opinion_req).then(function (response) {
-      $log.log(response);
-      $http(dictamen_req);
-      $http(providencia_req);
-    })
+        $http(post_req(main_url + 'crear-dictamen/', {
+          'expediente': vm.expediente_id,
+          'asesor': vm.asesor_id,
+          'descripcion': vm.tinymce_model_dictamen,
+          'campo_procuraduria': vm.tinymce_model_dictamen
+          })).then(function (response) {
+          $http(post_req(main_url + 'emitir-providencia/', {
+            'expediente': vm.expediente_id,
+            'asunto': 'asuntob',
+            'gerencia_destino': 1,
+            'descripcion': vm.tinymce_model_providencia
+          })).then(function (response) {
+            $log.log('Crear Providencia: \n' + response['statusText']);
+            $window.location.href = '/';
+          });
+        });
+      })
+    };
   }
 
   function post_req(url, d) {
