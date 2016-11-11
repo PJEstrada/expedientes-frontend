@@ -360,8 +360,15 @@ button{
 th{
 	font-size: 1rem !important;
 	color: @blue-second-color !important;
+	text-align: center !important;
 }
 td{
+	&.buttons-table{
+		text-align: right;
+	}
+	&.cols-table{
+		text-align: center;
+	}
 	font-size: 1rem;
 	.button{
 		font-family: @main-font-family;
@@ -373,6 +380,9 @@ td{
 /*Finishes styles for dashboard*/
 
 /*Start styles for crear_expediente*/
+.button-upload-file{
+	font-family: @main-font-family;
+}
 .schema-form-fieldset{
 	display: block;
 	clear: both;
