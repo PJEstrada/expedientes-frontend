@@ -20,20 +20,24 @@
     };
 
     vm.asesor_id = -1;
+    vm.expediente_id = $state.params.id;
 
     if (AuthService.isLoggedIn()) {
-      vm.get = function () {
-        $http.get(main_url + 'expediente/' + vm.asesor_id)
-          .success(function (data) {
-            vm.information = data;
-            $log.log(vm.information);
-          });
-      };
       vm.asesor_id = AuthService.currentUser()['user']['id'];
-      vm.get();
+      $http.get(main_url + 'expediente/' + vm.asesor_id)
+        .success(function (data) {
+          vm.information = data;
+          vm.id = data['numero_instancia'];
+          vm.estado = data['estado'];
+          vm.solicitante = data['solicitante'];
+        });
+      $http({
+        method: 'GET',
+        url: main_url + 'opinion/' + vm.expediente_id
+      }).then(function (response) {
+        vm.tinymce_model_opinion = response['data']['descripcion'];
+      })
     }
-
-    vm.expediente_id = $state.params.id;
 
     vm.text_content = '';
     vm.tinymce_model_opinion = '';

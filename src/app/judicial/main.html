@@ -6,34 +6,34 @@
 			<div class="col-container">
 
 			  <table class="data-table">
-				<tr>
-				  <th>Número</th>
-				  <th>Estado</th>
-				  <th>Solicitante</th>
-				</tr>
-				<tr ng-repeat="exp in ctrl.expedientes" ng-click="select(exp)">
-				  <td>{{exp.numero}}</td>
-				  <td>{{exp.estado}}</td>
-				  <td>{{exp.solicitante}}</td>
-				  <td>
-					  <a we-button
-               icon="file-text-o"
-               size="small"
-               color="success"
-               ui-sref="ver_expediente({id: exp.numero})">Ver</a>
-					  <a we-button
-               icon="edit"
-               size="small"
-               color="info"
-               ui-sref="editar_expediente({id: exp.numero})">Editar</a>
-					  <a we-button
-               icon="remove"
-               size="small"
-               color="danger"
-               ui-sref="home"
-               ng-click="ctrl.remove_expediente(exp.id)">Eliminar</a>
-				  </td>
-				</tr>
+          <tr>
+            <th>Número</th>
+            <th>Estado</th>
+            <th>Solicitante</th>
+          </tr>
+          <tr ng-repeat="exp in ctrl.expedientes" ng-click="select(exp)">
+            <td>{{exp.numero_instancia}}</td>
+            <td>{{exp.estado}}</td>
+            <td>{{exp.solicitante}}</td>
+            <td>
+              <a we-button
+                 icon="file-text-o"
+                 size="small"
+                 color="success"
+                 ui-sref="ver_expediente({id: exp.numero_instancia})">Ver</a>
+              <a we-button
+                 icon="edit"
+                 size="small"
+                 color="info"
+                 ui-sref="editar_expediente({id: exp.numero_instancia})">Editar</a>
+              <a we-button
+                 icon="remove"
+                 size="small"
+                 color="danger"
+                 ui-sref="home"
+                 ng-click="ctrl.remove_expediente(exp.id)">Eliminar</a>
+            </td>
+          </tr>
 			  </table>
 
 			  <div class="row left-xs">

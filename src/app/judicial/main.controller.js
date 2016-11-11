@@ -23,15 +23,11 @@
       return true;
     };
 
-    vm.get = function () {
-      $http.get(url)
-        .success(function (data) {
-          $log.log(data);
-          vm.expedientes = data;
-        });
-    };
-
-    vm.get();
+    $http.get(url)
+      .success(function (data) {
+        console.log(data);
+        vm.expedientes = data;
+      });
 
     vm.remove_expediente = function (id) {
       $log.log(id);

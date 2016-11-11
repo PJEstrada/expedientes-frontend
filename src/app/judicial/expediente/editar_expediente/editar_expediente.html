@@ -2,7 +2,19 @@
 <div class="body" ng-controller="EditarExpedienteController">
   <h2 class="principal-title">Editar expediente {{ctrl.expediente_id}}</h2>
 
-  <div class="info_container">
+  <div class="info-container">
+    <table class="data-table">
+      <tr>
+        <th>Número</th>
+        <th>Estado</th>
+        <th>Solicitante</th>
+      </tr>
+      <tr>
+        <td>{{ctrl.id}}</td>
+        <td>{{ctrl.estado}}</td>
+        <td>{{ctrl.solicitante}}</td>
+      </tr>
+    </table>
   </div>
 
   <div class="form_container">
