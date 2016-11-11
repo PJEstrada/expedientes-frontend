@@ -716,9 +716,6 @@
     vm.model = {};
 
     vm.onSubmit = function() {
-      // First we broadcast an event so all fields validate themselves
-      //vm.$broadcast('schemaFormValidate');
-
       $log.log(vm.model);
 
       var post_data = {
@@ -744,10 +741,8 @@
             $window.location.href = '/';
           }
         }, function (response) {
-          // TODO handle error
-          $log.log(response);
+          $window.alert(response);
         });
     }
-}
-//var formidable = require("formidable");
+  }
 })();
