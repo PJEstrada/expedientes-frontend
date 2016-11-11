@@ -1,6 +1,6 @@
 <div acme-navbar></div>
 <div class="body" ng-controller="EditarExpedienteController">
-  <h2>Editar expediente {{ctrl.expediente_id}}</h2>
+  <h2 class="principal-title">Editar expediente {{ctrl.expediente_id}}</h2>
 
   <div class="info_container">
   </div>
@@ -22,10 +22,8 @@
         <textarea ui-tinymce="ctrl.tinymce_options" ng-model="ctrl.tinymce_model_providencia"></textarea>
       </label>
       <br>
-      <button
-        we-button
-        type="submit"
-        ng-click="ctrl.upload_info()">Upload</button>
+	  <input type="submit" ng-click="ctrl.upload_info()" id="submit" value="Actualizar"/>
+
     </form>
   </div>
 </div>
