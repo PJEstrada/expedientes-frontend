@@ -191,7 +191,81 @@
               ]
             }]
           }]
-        }]
+        }//Fin de tab 3 de 1
+        ,{
+          'title': 'Red Satelital',
+          'items': [{
+            'type': 'fieldset',
+            'title': 'RED DE TELEFONÍA FIJA',
+            'htmlClass': 'row center-xs',
+            'items': [{
+              'type': 'fieldset',
+              'title': 'INFORMACIÓN GENERAL',
+              'htmlClass': 'row center-xs',
+              'items': [
+                'sa_cantidad_estaciones',
+                'sa_tipo_tecnologia_HUB',
+                'sa_ubicacion_HUB',
+                'sa_numero_licencia_HUB'
+              ]
+            },{
+              'type': 'fieldset',
+              'title': 'SERVICIOS DE VALOR AGREGADO',
+              'htmlClass': 'row center-xs',
+              'items': [
+                'sa_cantidad_enlaces',
+                'sa_velocidades_transmisión',
+                'sa_canitdad_enlaces_datos'
+              ]
+            },{
+              'type': 'fieldset',
+              'title': 'TRÁFICO',
+              'htmlClass': 'row center-xs',
+              'items': [
+                'trafico_red_movil_a_red_fija',
+                'trafico_red_fija_a_red_movil',
+                'trafico_generado_propia_red',
+                'trafico_generado_redes_nacionales',
+                'trafico_internacional_generado_red',
+                'trafico_internacional_terminado_red',
+                'trafico_promedio_abonado',
+                'tiempo_promedio_llamada_saliente',
+                'tiempo_promedio_llamada_entrante'
+              ]
+            },{
+              'type': 'fieldset',
+              'title': 'TARIFAS MÁXIMAS',
+              'description': 'Tarifas máximas al público de telefonía celular móvil, por 1 minuto de conversación, en Quetzales.',
+              'htmlClass': 'row center-xs',
+              'items': [
+                'sa_llamada_local_propia_red_normal',
+                'sa_llamada_local_propia_red_reducida',
+                'sa_llamada_local_otras_red_normal',
+                'sa_llamada_local_otras_red_reducida',
+                'sa_llamada_interurbana_normal',
+                'sa_llamada_interurbana_reducida',
+                'sa_cuota_minima_mensual',
+                'sa_minutos_cuota_minima_mensual',
+                'sa_precio_instalacion_linea_acceso'
+              ]
+            },{
+              'type': 'fieldset',
+              'title': 'EQUIPOS DE CONMUTACIÓN',
+              'htmlClass': 'row center-xs',
+              'items': [
+                'nombre_equipo_conmutacion_2',
+                'fabricante_modelo2',
+                'cantidad_circuitos_senal_r2_2',
+                'cantidad_circuitos_senal_7_2',
+                'capacidad_nominal_2',
+                'tipo_central_2',
+                'codigo_punto_senal_asignado_2',
+                'numero_terminales_operacion_2',
+                'ubicacion_central_2'
+              ]
+            }]
+          }]}
+        ]
           }]
         },{
           'title': 'Anexo D Red Fija',
@@ -563,6 +637,72 @@
           'title': 'Ubicación de la central (Depto y Municipio)',
           'type': 'string'
         },
+        'sa_cantidad_estaciones': {
+          'title': 'Cantidad de estaciones satélitales en servicio',
+          'type': 'string'
+        },
+        'sa_tipo_tecnologia_HUB': {
+          'title': 'Tipo de tecnología de transmisión que utiliza el HUB',
+          'type': 'string'
+        },
+        'sa_ubicacion_HUB': {
+          'title': 'Ubicación del HUB (Departamento y Municipio)',
+          'type': 'string'
+        },
+         'sa_numero_licencia_HUB': {
+          'title': 'Número de Licencia de usuario de facilidades satélitales del HUB',
+          'type': 'string'
+        },
+        'sa_cantidad_enlaces': {
+          'title': 'Cantidad de enlaces o líneas de transmisión de datos.',
+          'type': 'string'
+        },
+
+        'sa_velocidades_transmisión': {
+          'title': 'Velocidades de transmisión de datos que se ofrecen, en kbps.',
+          'type': 'string'
+        },
+        'sa_canitdad_enlaces_datos': {
+          'title': 'Cantidad de enlaces de datos satélitales para acceso a Internet',
+          'type': 'string'
+        },
+             'sa_llamada_local_propia_red_normal': {
+          'title': 'Llamada local, dentro de su propia red, tarifa normal',
+          'type': 'number'
+        },
+        'sa_llamada_local_propia_red_reducida': {
+          'title': 'Llamada local, dentro de su propia red, tarifa reducida',
+          'type': 'number'
+        },
+        'sa_llamada_local_otras_red_normal': {
+          'title': 'Llamada local, hacia otras redes, tarifa normal',
+          'type': 'number'
+        },
+        'sa_llamada_local_otras_red_reducida': {
+          'title': 'Llamada local, hacia otras redes, tarifa reducida',
+          'type': 'number'
+        },
+        'sa_llamada_interurbana_normal': {
+          'title': 'Llamada interurbana, tarifa normal',
+          'type': 'number'
+        },
+        'sa_llamada_interurbana_reducida': {
+          'title': 'Llamada interurbana, tarifa reducida',
+          'type': 'number'
+        },
+        'sa_cuota_minima_mensual': {
+          'title': 'Cuota básica mínima mensual',
+          'type': 'number'
+        },
+        'sa_minutos_cuota_minima_mensual': {
+          'title': 'Minutos que incluye la cuota básica mensual',
+          'type': 'number'
+        },
+        'sa_precio_instalacion_linea_acceso': {
+          'title': 'Precio de instalación de una línea de acceso',
+          'type': 'number'
+        }
+
         // TODO archivo adicional
         // TODO diagrama esquematico
         // TODO adjuntar plot cobertura
