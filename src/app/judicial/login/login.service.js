@@ -9,22 +9,22 @@
     .service('AuthService', AuthService);
 
   /** @ngInject */
-  function AuthService() {
-    // return {
-    //   login: function (user) {
-    //     $cookies.putObject('user', user);
-    //     $cookies.put('logged_in', true);
-    //   },
-    //   logout: function () {
-    //     $cookies.remove('user');
-    //     $cookies.remove('logged_in');
-    //   },
-    //   isLoggedIn: function () {
-    //     return $cookies.get('logged_in');
-    //   },
-    //   currentUser: function () {
-    //     return $cookies.getObject('user');
-    //   }
-    // };
+  function AuthService($cookies) {
+    return {
+      login: function (user) {
+        $cookies.putObject('user', user);
+        $cookies.put('logged_in', true);
+      },
+      logout: function () {
+        $cookies.remove('user');
+        $cookies.remove('logged_in');
+      },
+      isLoggedIn: function () {
+        return $cookies.get('logged_in');
+      },
+      currentUser: function () {
+        return $cookies.getObject('user');
+      }
+    };
   }
 })();
