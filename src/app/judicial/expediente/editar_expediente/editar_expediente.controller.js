@@ -5,11 +5,33 @@
   .module('frontendJudicial')
   .controller('EditarExpedienteController', EditarExpedienteController);
 
-  var main_url = 'http://todobacke-elasticl-le2gx6ueslwo-2118698052.us-west-2.elb.amazonaws.com';
+  var main_url = 'http://todobacke-elasticl-le2gx6ueslwo-2118698052.us-west-2.elb.amazonaws.com/';
 
   /** @ngInject */
-  function EditarExpedienteController($log, $http, $state) {
+  function EditarExpedienteController($log, $http, $state, $window, AuthService) {
     var vm = this;
+
+    vm.isLoggedIn = function () {
+      if (!AuthService.isLoggedIn()){
+        $window.location.href = '/';
+        return false;
+      }
+      return true;
+    };
+
+    vm.asesor_id = -1;
+
+    if (AuthService.isLoggedIn()) {
+      vm.get = function () {
+        $http.get(main_url + 'expediente-asesor/' + vm.asesor_id)
+          .success(function (data) {
+            vm.information = data;
+            $log.log(vm.information);
+          });
+      };
+      vm.asesor_id = AuthService.currentUser()['user']['id'];
+      vm.get();
+    }
 
     vm.expediente_id = $state.params.id;
 
@@ -23,36 +45,29 @@
       theme : 'modern'
     };
 
-    $http.post(url, {
-      'asesor': 1,
-      'descripcion': vm.tinymce_model_opinion
-    })
-      .then(
-        $http.post(url, {
-          'expediente': vm.expediente_id,
-          'descripcion': vm.tinymce_model_dictamen,
-          'campo_procuraduria': vm.tinymce_model_dictamen
-        }).then(
-          $http.post(url, {
+    vm.upload_info = function () {
+      $log.log(AuthService.current_user()['user']['id']);
+      $http.post(main_url + 'crear-opinion/', {
+        'asesor': vm.asesor_id,
+        'descripcion': vm.tinymce_model_opinion
+      })
+        .then(
+          $http.post(main_url + 'crear-dictamen/', {
             'expediente': vm.expediente_id,
-            'asunto': 'asuntob',
-            'descripcion': vm.tinymce_model_providencia
-          }).success(function (data) {
-            $log.log(data);
+            'descripcion': vm.tinymce_model_dictamen,
+            'campo_procuraduria': vm.tinymce_model_dictamen
           })
-        )
-      );
-
-    vm.information = get($http, url);
-
-    $log.log(vm.information);
+            .then(
+              $http.post(main_url + 'emitir-providencia/', {
+                'expediente': vm.expediente_id,
+                'asunto': 'asuntob',
+                'descripcion': vm.tinymce_model_providencia
+              }).success(function (data) {
+                $log.log(data);
+              })
+            ));
+    };
   }
-
-  function get($http, url) {
-    $http.jsonp(url)
-      .success(function (data) {
-        return data;
-      });
-}})();
+})();
 
 

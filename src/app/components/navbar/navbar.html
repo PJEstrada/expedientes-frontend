@@ -3,6 +3,6 @@
 
   <a href="/">ExpeSit</a>
 
-  <a ng-href="#/login">Usuario</a>
-  <img src="" href="/">
+  <a ui-sref="login" ng-hide="ctrl.isLoggedIn">Usuario</a>
+  <a ui-sref="login" ng-show="ctrl.isLoggedIn">{{ctrl.current_user.user.email}}</a>
 </nav>

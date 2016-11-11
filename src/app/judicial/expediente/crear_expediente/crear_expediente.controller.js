@@ -6,9 +6,10 @@
     .controller('CrearExpedienteController', CrearExpedienteController);
 
   /** @ngInject */
-  function CrearExpedienteController() {
+  function CrearExpedienteController($http, $log, $window, AuthService) {
     var vm = this;
 
+    vm.file = null;
     vm.form = [{
       'type': 'fieldset',
       'title': 'CREAR EXPEDIENTE',
@@ -46,7 +47,7 @@
                   'servicios_telefonicos',
                   'otros_servicios_telefonicos'
                 ]
-              }]  
+              }]
             }]
             }//FIN TAB 1 DE TAB 1
             ,{
@@ -574,11 +575,38 @@
 
     vm.model = {};
 
-    vm.onSubmit = function(form) {
+    vm.onSubmit = function() {
       // First we broadcast an event so all fields validate themselves
       //vm.$broadcast('schemaFormValidate');
 
-      console.log(vm.model);
+      $log.log(vm.model);
+
+      var post_data = {
+        'numero': Math.random() * 100 + 1 | 0,
+        'key': 'aaaaa' + Math.random() * 10000 + 1,
+        'estado': 1,
+        'solicitante': AuthService.currentUser()['user']['id'],
+        'documentos': {
+          'nombre': vm.file['name'],
+          'archivo': vm.file
+        }
+      };
+
+      var req = {
+        method: 'POST',
+        url: 'http://todobacke-elasticl-m0svpuaw5e4x-1938449628.us-west-2.elb.amazonaws.com/crear-expediente/',
+        data: post_data
+      };
+
+      $http(req)
+        .then(function (response) {
+          if (response['status'] == 201){
+            $window.location.href = '/';
+          }
+        }, function (response) {
+          // TODO handle error
+          $log.log(response);
+        });
     }
 }
 //var formidable = require("formidable");

@@ -1,5 +1,5 @@
 <div acme-navbar></div>
-<div class="body" ng-controller="EditarExpedienteController">
+<div class="body" ng-controller="EditarExpedienteController" ng-if="ctrl.isLoggedIn()">
   <h2>Editar expediente {{ctrl.expediente_id}}</h2>
 
   <div class="info_container">

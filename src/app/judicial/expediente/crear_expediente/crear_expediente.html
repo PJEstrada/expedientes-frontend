@@ -2,13 +2,16 @@
 
 <div class="grid">
   <div class="row center-xs" id="tabs" ng-controller="CrearExpedienteController">
+    <div class="button col xs-8" ngf-select ng-model="ctrl.file" name="file" ngf-pattern="'*'"
+         ngf-accept="'*'" ngf-max-size="20MB" ngf-min-height="100"
+         ngf-resize="{width: 100, height: 100}">Select File</div>
+
     <div class="col xs-8">
     <!-- http://schemaform.io/examples/bootstrap-example.html -->
-      <form name="FormTab1"
-            sf-schema="ctrl.schema"
+      <form sf-schema="ctrl.schema"
             sf-form="ctrl.form"
             sf-model="ctrl.model"
-            ng-submit="ctrl.onSubmit(FormTab1)"></form>
+            ng-submit="ctrl.onSubmit()"></form>
     </div>
   </div>
 </div>

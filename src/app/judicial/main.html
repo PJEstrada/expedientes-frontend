@@ -1,21 +1,21 @@
 <div acme-navbar></div>
 
 <h2>Dashboard</h2>
-<div class="container" ng-controller="MainController">
+<div class="container" ng-controller="MainController" ng-if="ctrl.isLoggedIn()">
 
   <table style="width:100%">
     <tr>
-      <th>Name</th>
-      <th>User</th>
-      <th>Date</th>
+      <th>Número</th>
+      <th>Usuario</th>
+      <th>Estado</th>
     </tr>
     <tr ng-repeat="exp in ctrl.expedientes" ng-click="select(exp)">
-      <td>{{exp.name}}</td>
-      <td>{{exp.user}}</td>
-      <td>{{exp.date}}</td>
-      <td><a ui-sref="ver_expediente({id: exp.id})">Ver</a></td>
-      <td><a ui-sref="editar_expediente({id: exp.id})">Editar</a></td>
-      <td><a href="#/" ng-click="ctrl.remove_expediente(exp.id)">Eliminar</a> </td>
+      <td>{{exp.numero}}</td>
+      <td>{{exp.solicitante}}</td>
+      <td>{{exp.estado}}</td>
+      <td><a ui-sref="ver_expediente({id: exp.numero})">Ver</a></td>
+      <td><a ui-sref="editar_expediente({id: exp.numero})">Editar</a></td>
+      <td><a ui-sref="home" ng-click="ctrl.remove_expediente(exp.id)">Eliminar</a> </td>
     </tr>
   </table>
 

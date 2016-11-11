@@ -6,10 +6,10 @@
 
   angular
     .module('frontendJudicial')
-    .controller('LoginController', LoginController);
+    .controller('RegisterController', RegisterController);
 
   /** @ngInject */
-  function LoginController($log, $window, AuthService) {
+  function RegisterController($log, $window, AuthService) {
     var vm = this;
 
     vm.isLoggedIn = function () {
