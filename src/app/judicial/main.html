@@ -1,27 +1,36 @@
 <div acme-navbar></div>
+<div class="grid">
+	<div class="row center-xs">
+		<div class="col xs-11 m-9">
+			<h2 class="principal-title">Dashboard</h2>
+			<div class="col-container" ng-controller="MainController">
 
-<h2>Dashboard</h2>
-<div class="container" ng-controller="MainController" ng-if="ctrl.isLoggedIn()">
+			  <table class="data-table">
+				<tr>
+				  <th>Name</th>
+				  <th>User</th>
+				  <th>Date</th>
+				</tr>
+				<tr ng-repeat="exp in ctrl.expedientes" ng-click="select(exp)">
+				  <td>{{exp.name}}</td>
+				  <td>{{exp.user}}</td>
+				  <td>{{exp.date}}</td>
+				  <td>
+					  <a we-button icon="file-text-o" size="small" color="success" ui-sref="ver_expediente({id: exp.id})">Ver</a>
+					  <a we-button icon="edit" size="small" color="info" ui-sref="editar_expediente({id: exp.id})">Editar</a>
+					  <a we-button icon="remove" size="small" color="danger" href="#/" ng-click="ctrl.remove_expediente(exp.id)">Eliminar</a>
+				  </td>
+				</tr>
+			  </table>
 
-  <table style="width:100%">
-    <tr>
-      <th>Número</th>
-      <th>Usuario</th>
-      <th>Estado</th>
-    </tr>
-    <tr ng-repeat="exp in ctrl.expedientes" ng-click="select(exp)">
-      <td>{{exp.numero}}</td>
-      <td>{{exp.solicitante}}</td>
-      <td>{{exp.estado}}</td>
-      <td><a ui-sref="ver_expediente({id: exp.numero})">Ver</a></td>
-      <td><a ui-sref="editar_expediente({id: exp.numero})">Editar</a></td>
-      <td><a ui-sref="home" ng-click="ctrl.remove_expediente(exp.id)">Eliminar</a> </td>
-    </tr>
-  </table>
-
-  <div class="row left-xs">
-    <div class="final-link">
-      <a ui-sref="crear_expediente()">Crear Expediente</a>
-    </div>
-  </div>
+			  <div class="row left-xs">
+				<div class="final-link">
+				  <a class="a-final" ui-sref="crear_expediente()">Crear Expediente</a>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</div>
 </div>
+
+
