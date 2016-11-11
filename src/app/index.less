@@ -9,9 +9,9 @@
 @second-font-family: 'Montserrat', sans-serif;
 
 @blue-color:                      #014495;
-@blue-second-color:               #023077;
+@blue-second-color:         #023077;
 @red-color:                       #F51616;
-@input-color:                     #035  8db;
+@input-color:                     #0358db;
 @button-color:                    #034fc4;
 
 .browsehappy {
@@ -38,6 +38,26 @@ h1, h2, h3, h4, h5, h6{
 .form-register{
   background-color: #ebebeb;
   border-radius: 15px;
+}
+
+#submit{
+	font-family:@main-font-family;
+	display: block;
+	margin: 0 auto;
+	margin-top: 2rem;
+	background-color: @blue-color;
+	border: none;
+	color: white;
+	cursor: pointer;
+	height: 51px;	
+	line-height: 49px;
+	padding: 0 40px;
+	text-transform: uppercase;
+	vertical-align: middle;
+	border-radius: 7px;
+	font-size: 1rem;
+	font-weight: bolder;
+	.ellipsis();
 }
 
 .container {
@@ -250,6 +270,7 @@ ul {
 }
 label{
   font-family: @main-font-family;
+  cursor: default;
 }
 li {
   padding: 5px 19px;
@@ -329,6 +350,30 @@ button{
   margin: 2em;
 }
 
+/*Start styles for dashboard*/
+.dashboard-title{
+	text-align: center;
+	font-size: 2rem;
+	color: @blue-second-color;
+}
+th{
+	font-size: 1rem !important;
+	color: @blue-second-color !important;
+}
+td{
+	font-size: 1rem;
+	.button{
+		font-family: @main-font-family;
+	}
+}
+.a-final{
+	padding-left: 2rem;
+}
+
+
+
+
+/*Finishes styles for dashboard*/
 
 
 
