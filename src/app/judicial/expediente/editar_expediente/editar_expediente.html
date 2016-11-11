@@ -1,29 +1,37 @@
 <div acme-navbar></div>
-<div class="body" ng-controller="EditarExpedienteController">
-  <h2 class="principal-title">Editar expediente {{ctrl.expediente_id}}</h2>
 
-  <div class="info_container">
-  </div>
+<div class="grid">
+	<div class="row center-xs">
+		<div class="col xs-11 m-9">
+			<div class="body" ng-controller="EditarExpedienteController">
+			  <h2 class="principal-title">Editar expediente {{ctrl.expediente_id}}</h2>
 
-  <div class="form_container">
-    <form method="post">
-      <label>
-        Opinión
-        <textarea ui-tinymce="ctrl.tinymce_options" ng-model="ctrl.tinymce_model_opinion"></textarea>
-      </label>
-      <br>
-      <label>
-        Dictamen
-        <textarea ui-tinymce="ctrl.tinymce_options" ng-model="ctrl.tinymce_model_dictamen"></textarea>
-      </label>
-      <br>
-      <label>
-        Providencia
-        <textarea ui-tinymce="ctrl.tinymce_options" ng-model="ctrl.tinymce_model_providencia"></textarea>
-      </label>
-      <br>
-	  <input type="submit" ng-click="ctrl.upload_info()" id="submit" value="Actualizar"/>
+			  <div class="info_container">
+			  </div>
 
-    </form>
-  </div>
+			  <div class="form_container">
+				<form method="post">
+				  <label>
+					<h3>Opinión</h3>
+					<textarea ui-tinymce="ctrl.tinymce_options" ng-model="ctrl.tinymce_model_opinion"></textarea>
+				  </label>
+				  <br>
+				  <label>
+					<h3>Dictamen</h3>
+					<textarea ui-tinymce="ctrl.tinymce_options" ng-model="ctrl.tinymce_model_dictamen"></textarea>
+				  </label>
+				  <br>
+				  <label>
+					<h3>Providencia</h3>
+					<textarea ui-tinymce="ctrl.tinymce_options" ng-model="ctrl.tinymce_model_providencia"></textarea>
+				  </label>
+				  <br>
+				  <input type="submit" ng-click="ctrl.upload_info()" id="submit" value="Actualizar"/>
+
+				</form>
+			  </div>
+			</div>
+		</div>
+	</div>
 </div>
+
