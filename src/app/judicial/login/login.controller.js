@@ -12,24 +12,24 @@
   function LoginController($log, $window, AuthService) {
     var vm = this;
 
-    if (AuthService.isLoggedIn()){
-      $window.location.href = '/';
-    }
+    // if (AuthService.isLoggedIn()){
+    //   $window.location.href = '/';
+    // }
 
-    vm.email = '';
-    vm.password = '';
-
-    vm.submit = function () {
-      AuthService.login({'user': {
-        'email': vm.email,
-        'name': 'name'
-      }});
-
-      $log.log("email", vm.email);
-      $log.log("password", vm.password);
-
-      $window.location.href = '/';
-    }
+    // vm.email = '';
+    // vm.password = '';
+    //
+    // vm.submit = function () {
+    //   AuthService.login({'user': {
+    //     'email': vm.email,
+    //     'name': 'name'
+    //   }});
+    //
+    //   $log.log("email", vm.email);
+    //   $log.log("password", vm.password);
+    //
+    //   $window.location.href = '/';
+    // }
   }
 
 })();
