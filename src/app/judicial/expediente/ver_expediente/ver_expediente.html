@@ -1,26 +1,30 @@
 <div acme-navbar></div>
-<div class="body" ng-controller="VerExpedienteController">
-  <h1 class="principal-title">Expediente {{ctrl.expediente_id}}</h1>
 
-  <div class="info-container">
-    <table class="data-table">
-      <tr>
-        <th>Número</th>
-        <th>Estado</th>
-        <th>Solicitante</th>
-      </tr>
-      <tr>
-        <td>{{ctrl.id}}</td>
-        <td>{{ctrl.estado}}</td>
-        <td>{{ctrl.solicitante}}</td>
-      </tr>
-    </table>
-  </div>
+<div class="grid">
+	<div class="row center-xs" ng-controller="VerExpedienteController">
+		<div class="col xs-11 m-9">
+		  <h1 class="principal-title">Expediente {{ctrl.expediente_id}}</h1>
 
-  <div class="opinion-container">
-    <h2>Opinión</h2>
-    <h3>{{ctrl.opinion_fecha}}</h3>
-    <p>{{ctrl.opinion}}</p>
-  </div>
+		  <div class="col-container">
+			<table class="data-table">
+			  <tr>
+				<th>Número</th>
+				<th>Estado</th>
+				<th>Solicitante</th>
+			  </tr>
+			  <tr>
+				<td class="cols-table">{{ctrl.id}}</td>
+				<td class="cols-table">{{ctrl.estado}}</td>
+				<td class="cols-table">{{ctrl.solicitante}}</td>
+			  </tr>
+			</table>
+		  </div>
 
+		  <div class="opinion-container">
+			<h2>Opinión</h2>
+			<h3>{{ctrl.opinion_fecha}}</h3>
+			<p>{{ctrl.opinion}}</p>
+		  </div>
+		</div>
+	</div>
 </div>

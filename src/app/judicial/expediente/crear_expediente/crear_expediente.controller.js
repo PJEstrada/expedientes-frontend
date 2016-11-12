@@ -287,6 +287,7 @@
       }]
     },{
       type: "submit",
+	  htmlClass: "button-save",
       title: "GUARDAR"
     }];
 
