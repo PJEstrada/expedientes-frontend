@@ -268,13 +268,17 @@
           }]}
         ]
           }]
-        },{
+        }/*,{
           'title': 'Anexo D Red Fija',
-          'items': [{}]
+          'items': [{
+            "type":     "nwpFileUpload"
+
+          }]
 
         },{
           'title': 'Anexo E Red Movil',
-          'items': [{}]
+          'items': [{
+          }]
 
         },{
           'title': 'Anexo F Via Satelite',
@@ -282,7 +286,7 @@
         },{
           'title': 'Anexo I Numeración',
           'items': [{}]
-        }
+        }*/
         ]
       }]
     },{
