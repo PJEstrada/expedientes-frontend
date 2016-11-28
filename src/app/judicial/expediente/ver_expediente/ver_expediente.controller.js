@@ -5,7 +5,7 @@
     .module('frontendJudicial')
     .controller('VerExpedienteController', VerExpedienteController);
 
-  var main_url = 'http://todobacke-elasticl-m0svpuaw5e4x-1938449628.us-west-2.elb.amazonaws.com/';
+  var main_url = 'http://localhost:8000/'//'http://todobacke-elasticl-m0svpuaw5e4x-1938449628.us-west-2.elb.amazonaws.com/';
 
   /** @ngInject */
   function VerExpedienteController($log, $http, $state) {
@@ -21,29 +21,34 @@
         if ('numero_instancia' in data){
           vm.id = data['numero_instancia'];
           vm.solicitante = data['solicitante'];
+          vm.solicitante_nombre = "AsesorJuridico "+data['solicitante'];
           vm.estado = data['estado'];
 
           $http({
             method: 'GET',
-            url: main_url + '/opinion/' + vm.id
+            url: main_url + 'opinion/' + vm.id
           }).then(function (response) {
             vm.opinion_fecha = response['data']['fecha_emision'];
+            vm.opinion_fecha = moment(vm.opinion_fecha).format("DD/MM/YYYY");
             vm.opinion = response['data']['descripcion'];
           });
 
           $http({
             method: 'GET',
-            url: main_url + '/providencia/' + vm.id
+            url: main_url + 'providencia/' + vm.id
           }).then(function (response) {
-            // TODO providencia
+            vm.providencia_fecha = response['data']['fecha_emision'];
+            vm.providencia_fecha = moment(vm.providencia_fecha).format("DD/MM/YYYY");
+            vm.providencia = response['data']['descripcion'];
           });
 
           $http({
             method: 'GET',
-            url: main_url + '/dictamen/' + vm.id
+            url: main_url + 'dictamen/' + vm.id
           }).then(function (response) {
-            // TODO dictamen
-            $log.log(response);
+            vm.dictamen_fecha = response['data']['fecha_emision'];
+            vm.dictamen_fecha = moment(vm.dictamen_fecha).format("DD/MM/YYYY");
+            vm.dictamen = response['data']['descripcion'];
           });
 
         }

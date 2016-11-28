@@ -2,46 +2,46 @@
 <div class="grid" ng-controller="RegisterController" ng-if="ctrl.isLoggedIn()">
   <div class="row center-xs">
     <div class="col xs-10 m-8 ">
-      <h1>Register</h1>
+      <h1>Registero</h1>
       <form class="col content form-register" name="registerForm" ng-submit="ctrl.submit(username, email, rol, firstName, lastName, dpi, password, confirmPassword)">
 
-        <label for="username">Username:</label>
+        <label for="username">Usuario:</label>
         <input type="text" name="username" id="username" ng-model="username" required/>
 
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" ng-model="email" required/>
 
-        <label>Role:</label>
+        <label>Rol:</label>
         <label>
           <input name="rol" type="radio" ng-model="rol" value="rol1">
-          Rol 1
+          Recepcionista
         </label>
         <label>
           <input name="rol" type="radio" ng-model="rol" value="rol2">
-          Rol 2
+          Asistente Gerente Telefonía
         </label>
         <label>
           <input name="rol" type="radio" ng-model="rol" value="rol3">
-          Rol 3
+          Asesor Jurídico
         </label>
 
-        <label for="firstName">First Name:</label>
+        <label for="firstName">Nombre:</label>
         <input type="text" name="firstName" id="firstName" ng-model="firstName" required/>
 
-        <label for="lastName">Last Name:</label>
+        <label for="lastName">Apellido:</label>
         <input type="text" name="lastName" id="lastName" ng-model="lastName" required/>
 
         <label for="dpi">DPI:</label>
         <input type="number" name="dpi" id="dpi" ng-model="dpi" required/>
 
-        <label for="password">Password:</label>
+        <label for="password">Contraseña:</label>
         <input type="password" name="password" id="password" ng-model="password" required/>
 
 
-        <label for="confirmPassword">Confirm Password:</label>
+        <label for="confirmPassword">Confirmar Contraseña:</label>
         <input type="password" name="confirmPassword" id="confirmPassword" ng-model="confirmPassword" required/>
 
-        <input type="submit" id="submit" value="Register"/>
+        <input type="submit" id="submit" value="Registrar"/>
       </form>
     </div>
   </div>

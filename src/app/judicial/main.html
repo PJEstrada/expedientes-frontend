@@ -2,7 +2,7 @@
 <div class="grid">
 	<div class="row center-xs" ng-controller="MainController" ng-if="ctrl.isLoggedIn()">
 		<div class="col xs-11 m-9">
-			<h2 class="principal-title">Dashboard</h2>
+			<h2 class="principal-title">Tablero Judicial</h2>
 			<div class="col-container">
 
 			  <table class="data-table">
@@ -13,8 +13,9 @@
 				</tr>
 				<tr ng-repeat="exp in ctrl.expedientes" ng-click="select(exp)">
 				  <td class="cols-table">{{exp.numero_instancia}}</td>
-				  <td class="cols-table">{{exp.estado}}</td>
-				  <td class="cols-table">{{exp.solicitante}}</td>
+					<td class="cols-table" ng-if="exp.estado == 1">En espera</td>
+					<td class="cols-table" ng-if="exp.estado == 2">Revisado</td>
+				  <td class="cols-table">{{exp.solicitante_nombre}}</td>
 				  <td class="buttons-table">
 					<a
 						we-button
@@ -40,13 +41,11 @@
 			  </table>
 
 			  <div class="row left-xs">
-				<div class="final-link">
+			<!--	<div class="final-link">
 				  <a class="a-final" ui-sref="crear_expediente()">Crear Expediente</a>
-				</div>
+				</div>-->
 			  </div>
 			</div>
 		</div>
 	</div>
 </div>
-
-

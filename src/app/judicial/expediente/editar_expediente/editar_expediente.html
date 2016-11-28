@@ -4,7 +4,7 @@
 	<div class="row center-xs">
 		<div class="col xs-11 m-9">
 			<div class="body" ng-controller="EditarExpedienteController">
-			  <h2 class="principal-title">Editar expediente {{ctrl.expediente_id}}</h2>
+			  <h2 class="principal-title">Edición Jurídica de Expediente {{ctrl.expediente_id}}</h2>
 
               <div class="info-container">
                 <table class="data-table">
@@ -15,8 +15,9 @@
                   </tr>
                   <tr>
                     <td class="cols-table">{{ctrl.id}}</td>
-                    <td class="cols-table">{{ctrl.estado}}</td>
-                    <td class="cols-table">{{ctrl.solicitante}}</td>
+										<td class="cols-table" ng-if="ctrl.estado == 1">En espera</td>
+										<td class="cols-table" ng-if="ctrl.estado == 2">Revisado</td>
+                    <td class="cols-table">{{ctrl.solicitante_nombre}}</td>
                   </tr>
                 </table>
               </div>
@@ -46,4 +47,3 @@
 		</div>
 	</div>
 </div>
-

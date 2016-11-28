@@ -5,7 +5,7 @@
   .module('frontendJudicial')
   .controller('EditarExpedienteController', EditarExpedienteController);
 
-  var main_url = 'http://todobacke-elasticl-m0svpuaw5e4x-1938449628.us-west-2.elb.amazonaws.com/';
+  var main_url = 'http://localhost:8000/';//'http://todobacke-elasticl-m0svpuaw5e4x-1938449628.us-west-2.elb.amazonaws.com/';
 
   /** @ngInject */
   function EditarExpedienteController($log, $http, $state, $window, AuthService) {
@@ -30,13 +30,26 @@
           vm.id = data['numero_instancia'];
           vm.estado = data['estado'];
           vm.solicitante = data['solicitante'];
+          vm.solicitante_nombre = "AsesorJuridico " + data['solicitante'];
         });
       $http({
         method: 'GET',
         url: main_url + 'opinion/' + vm.expediente_id
       }).then(function (response) {
         vm.tinymce_model_opinion = response['data']['descripcion'];
-      })
+      });
+      $http({
+        method: 'GET',
+        url: main_url + 'dictamen/' + vm.expediente_id
+      }).then(function (response) {
+        vm.tinymce_model_dictamen = response['data']['descripcion'];
+      });
+      $http({
+        method: 'GET',
+        url: main_url + 'providencia/' + vm.expediente_id
+      }).then(function (response) {
+        vm.tinymce_model_providencia = response['data']['descripcion'];
+      });
     }
 
     vm.text_content = '';
@@ -46,7 +59,8 @@
     vm.tinymce_options = {
       plugins : 'advlist autolink link image lists charmap print preview',
       skin: 'lightgray',
-      theme : 'modern'
+      theme : 'modern',
+      format: 'text'
     };
 
     vm.upload_info = function () {
@@ -69,13 +83,18 @@
             'gerencia_destino': 1,
             'descripcion': vm.tinymce_model_providencia
           })).then(function (response) {
-            $log.log('Crear Providencia: \n' + response['statusText']);
-            $window.location.href = '/';
+            $http.put(main_url + 'actualizar-expediente/' + vm.expediente_id+'/', {estado: 2})
+            .success(function (data) {
+              $log.log('Crear Providencia: \n' + response['statusText']);
+              $window.location.href = '/';
+            });
           });
         });
       })
     };
   }
+
+
 
   function post_req(url, d) {
     return {
@@ -85,5 +104,3 @@
     };
   }
 })();
-
-

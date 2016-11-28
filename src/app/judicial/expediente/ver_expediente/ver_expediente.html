@@ -14,17 +14,34 @@
 			  </tr>
 			  <tr>
 				<td class="cols-table">{{ctrl.id}}</td>
-				<td class="cols-table">{{ctrl.estado}}</td>
-				<td class="cols-table">{{ctrl.solicitante}}</td>
+				<td class="cols-table" ng-if="ctrl.estado == 1">En espera</td>
+				<td class="cols-table" ng-if="ctrl.estado == 2">Revisado</td>
+				<td class="cols-table">{{ctrl.solicitante_nombre}}</td>
 			  </tr>
 			</table>
 		  </div>
 
 		  <div class="opinion-container">
-			<h2>Opinión</h2>
+			<h2>Opinión Jurídicia</h2>
 			<h3>{{ctrl.opinion_fecha}}</h3>
 			<p>{{ctrl.opinion}}</p>
+			<p ng-if="ctrl.opinion.length == 0">Aun no se ha emitido una opinión</p>
 		  </div>
+			<div class="opinion-container">
+			<h2>Dictamen Jurídico</h2>
+			<h3>{{ctrl.dictamen_fecha}}</h3>
+			<p>{{ctrl.dictamen}}</p>
+			<p ng-if="ctrl.dictamen.length == 0">Aun no se ha emitido un dictamen</p>
+		  </div>
+			<div class="opinion-container">
+			<h2>Providencia Jurídica</h2>
+			<h3>{{ctrl.providencia_fecha}}</h3>
+			<p>{{ctrl.providencia}}</p>
+			<p ng-if="ctrl.providencia.length == 0">Aun no se ha emitido una providencia</p>
+		  </div>
+			<div class="final-link">
+				  <a class="a-final" ui-sref="crear_expediente()">Ver Expediente Completo</a>
+				</div>
 		</div>
 	</div>
 </div>

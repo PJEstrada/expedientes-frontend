@@ -5,7 +5,7 @@
       .module('frontendJudicial')
       .controller('MainController', MainController);
 
-  var main_url = 'http://todobacke-elasticl-m0svpuaw5e4x-1938449628.us-west-2.elb.amazonaws.com/expedientes-asesor/';
+  var main_url = 'http://localhost:8000/expedientes-asesor/'//'http://todobacke-elasticl-m0svpuaw5e4x-1938449628.us-west-2.elb.amazonaws.com/expedientes-asesor/';
 
   /** @ngInject */
   function MainController($log, $http, $window, AuthService) {
@@ -26,6 +26,13 @@
     $http.get(url)
       .success(function (data) {
         console.log(data);
+        for (var i = 0; i < data.length; i++)
+        {
+          if(data[i].solicitante == 1)
+          {
+            data[i].solicitante_nombre = "AsesorJuridico "+data[i].solicitante;
+          }
+        }
         vm.expedientes = data;
       });
 
@@ -43,4 +50,3 @@
   }
 
 })();
-

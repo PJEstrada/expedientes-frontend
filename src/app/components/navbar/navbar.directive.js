@@ -28,6 +28,11 @@
       vm.relativeDate = moment(vm.creationDate).fromNow();
       vm.isLoggedIn = AuthService.isLoggedIn();
       vm.current_user = AuthService.currentUser();
+
+      vm.logout = function(){
+        console.log("ashdfjksa");
+        AuthService.logout();
+      }
     }
   }
 
