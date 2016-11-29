@@ -11,7 +11,7 @@
 				  <th>Fecha de Ingreso</th>
 				  <th>Solicitante</th>
 				</tr>
-				<tr ng-repeat="exp in ctrl.expedientes">
+				<tr ng-repeat="exp in ctrl.expedientes" ng-if="!exp.removed === true">
 				  <td class="cols-table">{{exp.case_number}}</td>
 				  <td class="cols-table">{{exp.entry_date}}</td>
 				  <td class="cols-table">{{exp.solicitante}}</td>
@@ -40,7 +40,7 @@
 						size="small"
 						color="danger"
 						ui-sref="telefonia_home"
-						ng-click="ctrl.remove_expediente(exp.id)">Eliminar</a>
+						ng-click="ctrl.remove_expediente(exp, $index)">Eliminar</a>
 				  </td>
 				</tr>
 			  </table>

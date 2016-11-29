@@ -6,7 +6,7 @@
       .controller('TelefoniaMainController', TelefoniaMainController);
 
   /** @ngInject */
-  function TelefoniaMainController($log, $window, AuthService, Telefonia) {
+  function TelefoniaMainController($scope, $log, $window, AuthService, Telefonia) {
     var vm = this;
 
     vm.isLoggedIn = function () {
@@ -26,11 +26,22 @@
         exp.entry_date = moment(exp.entry_date).format('l');
       });
       vm.expedientes = expedientes;
+      $log.log(vm.expedientes);
     });
 
-    vm.remove_expediente = function (id) {
-      var expediente = Telefonia.expediente({id:id});
-      expediente.remove();
+    vm.remove_expediente = function (exp, index) {
+      exp.$remove(function () {
+        var dictamen = Telefonia.dictamen();
+        dictamen.query({id:exp.id}, function () {
+          dictamen[0].$remove(function () {
+            var providencia = Telefonia.providencia();
+            providencia.query({id:exp.id}, function () {
+              providencia.$remove();
+            });
+          });
+        });
+      });
+      vm.expedientes.splice(index, 1);
     }
   }
 

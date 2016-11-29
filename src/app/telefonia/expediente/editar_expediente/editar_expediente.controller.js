@@ -19,80 +19,58 @@
 
     var expediente_id = $state.params.id;
 
-    var success = "";
-
     if (AuthService.isLoggedIn()) {
 
-      vm.expediente = Telefonia.expediente({id: expediente_id});
+      var Expediente = Telefonia.expediente();
+      var expediente = Expediente.get({id:expediente_id}, function () {
+        vm.case_number = expediente.case_number;
+        vm.correlativo = expediente.correlative;
+        vm.solicitante = expediente.solicitante;
+        vm.fecha = moment(expediente.entry_date).format('l');
+        vm.observacion = expediente.observation;
+        vm.asunto = expediente.subject;
+        $log.log(expediente);
 
-      vm.id = vm.expediente.case_number;
-      vm.correlativo = vm.expediente.correlative;
-      vm.solicitante = vm.expediente.solicitante;
-      vm.fecha = moment(vm.expediente.entry_date).format('l');
-      vm.observacion = vm.expediente.observation;
-      vm.asunto = vm.expediente.subject;
+        vm.schema = {
+          'type': 'object',
+          'title': 'comment',
+          'properties': {
+            'case_number': {
+              'title': 'Número de Expediente',
+              'type': 'number',
+              'default': vm.case_number
+            },
+            'correlative': {
+              'title': 'Correlativo',
+              'type': 'number',
+              'default': vm.correlativo
+            },
+            'solicitante': {
+              'title': 'Solicitante',
+              'type': 'string',
+              'default': vm.solicitante
+            },
+            'subject': {
+              'title': 'Asunto',
+              'type': 'string',
+              'default': vm.asunto
+            },
+            'observation': {
+              'title': 'Observación',
+              'type': 'string',
+              'default': vm.observacion
+            }
+          },
+          'required': [
+            '*'
+          ]
+        };
+
+      });
 
     }
 
-    $log.log(vm.expediente);
 
-    vm.form = [{
-      'type': 'fieldset',
-      'title': 'EDITAR EXPEDIENTE',
-      'items': [{
-        'type': 'fieldset',
-        'htmlClass': 'options',
-        'items': [
-          'case_number',
-          'correlative',
-          'solicitante',
-          'subject',
-          'observation'
-        ]}
-      ]},{
-      type: "submit",
-      htmlClass: "button-save",
-      title: "GUARDAR"
-    }];
-
-    var num = 123445;
-
-    vm.schema = {
-      'type': 'object',
-      'title': 'comment',
-      'properties': {
-        'case_number': {
-          'title': 'Número de Expediente',
-          'type': 'number',
-          'default': num
-        },
-        'correlative': {
-          'title': 'Correlativo',
-          'type': 'number',
-          'default': parseInt(vm.expediente.id)
-        },
-        'solicitante': {
-          'title': 'Solicitante',
-          'type': 'string',
-          'default': vm.expediente.solicitante
-        },
-        'subject': {
-          'title': 'Asunto',
-          'type': 'string',
-          'default': success
-        },
-        'observation': {
-          'title': 'Observación',
-          'type': 'string',
-          'default': vm.observacion
-        }
-      },
-      'required': [
-        '*'
-      ]
-    };
-
-    vm.model = vm.expediente;
 
     vm.onSubmit = function() {
       $log.log(vm.model);
