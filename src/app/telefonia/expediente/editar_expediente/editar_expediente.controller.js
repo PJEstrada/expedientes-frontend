@@ -6,7 +6,7 @@
   .controller('TelefoniaEditarExpedienteController', TelefoniaEditarExpedienteController);
 
   /** @ngInject */
-  function TelefoniaEditarExpedienteController($log, $http, $state, $window, AuthService, Telefonia, $scope) {
+  function TelefoniaEditarExpedienteController($log, $state, $window, AuthService, Telefonia) {
     var vm = this;
 
     vm.isLoggedIn = function () {
@@ -19,10 +19,12 @@
 
     var expediente_id = $state.params.id;
 
+    var expediente;
+
     if (AuthService.isLoggedIn()) {
 
-      var Expediente = Telefonia.expediente();
-      var expediente = Expediente.get({id:expediente_id}, function () {
+      var Expediente = Telefonia.expediente({id:expediente_id});
+      expediente = Expediente.get({id:expediente_id}, function () {
         vm.case_number = expediente.case_number;
         vm.correlativo = expediente.correlative;
         vm.solicitante = expediente.solicitante;
@@ -38,17 +40,17 @@
             'case_number': {
               'title': 'Número de Expediente',
               'type': 'number',
-              'default': vm.case_number
+              'default': parseInt(vm.case_number)
             },
             'correlative': {
               'title': 'Correlativo',
               'type': 'number',
-              'default': vm.correlativo
+              'default': parseInt(vm.correlativo)
             },
             'solicitante': {
               'title': 'Solicitante',
               'type': 'string',
-              'default': vm.solicitante
+              'default': 'solicito'
             },
             'subject': {
               'title': 'Asunto',
@@ -70,23 +72,39 @@
 
     }
 
+    vm.form = [{
+      'type': 'fieldset',
+      'title': 'EDITAR EXPEDIENTE',
+      'items': [{
+        'type': 'fieldset',
+        'htmlClass': 'options',
+        'items': [
+          'case_number',
+          'correlative',
+          'solicitante',
+          'subject',
+          'observation'
+        ]}
+      ]},{
+      type: "submit",
+      htmlClass: "button-save",
+      title: "GUARDAR"
+    }];
 
+    vm.model = {};
 
     vm.onSubmit = function() {
       $log.log(vm.model);
 
-      var Expediente = Telefonia.expediente();
-      var expediente = new Expediente({
-        'case_number': vm.model.case_number,
-        'entry_date': moment(),
-        'correlative': vm.model.correlative,
-        'solicitante': vm.model.solicitante,
-        'observation': vm.model.observation,
-        'subject': vm.model.subject
-      });
-      expediente.$save();
-    };
+      expediente.case_number = vm.model.case_number;
+      expediente.correlative = vm.model.correlative;
+      expediente.solicitante = vm.model.solicitante;
+      expediente.observation = vm.model.observation;
+      expediente.subject = vm.model.subject;
 
+      expediente.$update();
+      $state.go('telefonia_home');
+    };
   }
 })();
 

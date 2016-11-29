@@ -68,12 +68,12 @@
       var Dictamen = Telefonia.dictamen();
 
       var expediente = new Expediente({
-        'case_number': vm.model.case_number,
-        'entry_date': moment(),
-        'correlative': vm.model.correlative,
-        'solicitante': vm.model.solicitante,
-        'observation': vm.model.observation,
-        'subject': vm.model.subject
+        case_number: vm.model.case_number,
+        entry_date: moment(),
+        correlative: vm.model.correlative,
+        solicitante: vm.model.solicitante,
+        observation: vm.model.observation,
+        subject: vm.model.subject
       });
 
       expediente.$save(function (exp) {
@@ -81,15 +81,14 @@
           'case_number': exp.id,
           'subject': vm.model.subject
         });
-        dictamen.$save(function (dict) {
+        dictamen.$save(function () {
           var providencia = new Providencia({
-            'case_number': expediente.id
+            'case_number': exp.id
           });
           providencia.$save();
         });
+        $state.go('telefonia_home');
       });
-
-      $state.go('telefonia_home');
 
     }
   }

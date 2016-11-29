@@ -19,21 +19,35 @@
     var acta = 'acts/';
     var dictamen = 'dicta/';
     var providencia = 'providences/';
+    var findOne = 'findOne/';
 
-    service.expediente = function (id) {
-      return $resource(baseURL + expediente + ':id', {id:'@id'})
+    service.expediente = function () {
+      return $resource(baseURL + expediente + ':id', {id:'@id'},
+        {
+          'update': {
+            method: 'PUT'
+          }
+        })
     };
 
-    service.acta = function (id) {
+    service.acta = function () {
       return $resource(baseURL + acta + ':id', {id:'@id'})
     };
 
-    service.dictamen = function (id) {
+    service.dictamen = function () {
       return $resource(baseURL + dictamen + ':id', {id:'@id'})
     };
 
-    service.providencia = function (id) {
+    service.dictamenInstance = function () {
+      return $resource(baseURL + dictamen + findOne, {where:'@query'});
+    };
+
+    service.providencia = function () {
       return $resource(baseURL + providencia + ':id', {id:'@id'})
+    };
+
+    service.providenciaInstance = function () {
+      return $resource(baseURL + providencia + findOne, {where:'@query'});
     };
 
     return service;

@@ -45,13 +45,5 @@
     }
   }
 
-  function get($http, url) {
-    $http.jsonp(url)
-      .success(function (data) {
-        console.log(data);
-        return data;
-      });
-  }
-
 })();
 

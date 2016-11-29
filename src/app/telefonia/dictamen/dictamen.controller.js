@@ -6,12 +6,12 @@
   .controller('TelefoniaDictamenController', CrearDictamenController);
 
   /** @ngInject */
-  function CrearDictamenController($state, $window, AuthService, Telefonia) {
+  function CrearDictamenController($log, $state, $window, AuthService, Telefonia) {
     var vm = this;
 
     vm.isLoggedIn = function () {
       if (!AuthService.isLoggedIn()){
-        $window.location.href = '/';
+        $window.location.href = '/telefonia';
         return false;
       }
       return true;
@@ -21,37 +21,29 @@
     var date = new Date();
 
     if (AuthService.isLoggedIn()) {
-      vm.asesor_id = AuthService.currentUser()['user']['id'];
-      var Dictamen = Telefonia.dictamen();
+      var Expediente = Telefonia.expediente();
+      var Dictamen = Telefonia.dictamenInstance();
 
-      vm.information = Dictamen;
-      vm.id = Dictamen.numero_instancia;
-      date = moment(Dictamen.entry_date);
-      vm.fecha = date;
-      vm.solicitante = Dictamen.solicitante;
+      var expediente = Expediente.get({id:expediente_id},function () {
+        $log.log(expediente);
+        vm.information = expediente;
+        vm.id = expediente.case_number;
+        date = moment(expediente.entry_date).format('l');
+        vm.fecha = date;
+        vm.solicitante = expediente.solicitante;
+      });
+      var dictamen = Dictamen.get({query:{case_number:expediente_id}})
+
+
     }
 
     vm.upload_info = function () {
+      $state.go('telefonia_home');
 
-      var Expediente = Telefonia.expediente({id:expediente_id});
-      var expediente = new Expediente({
-        'entry_date': date,
-        'correlative': vm.model.correlative,
-        'solicitante': vm.model.solicitante,
-        'observation': vm.model.observation,
-        'subject': vm.model.subject
-      });
-      expediente.$save();
+      $log.log('Guardad dictamen');
     };
   }
 
-  function post_req(url, d) {
-    return {
-      method: 'POST',
-      url: url,
-      data: d
-    };
-  }
 })();
 
 
