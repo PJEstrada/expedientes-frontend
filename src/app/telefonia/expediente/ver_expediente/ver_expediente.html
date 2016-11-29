@@ -1,0 +1,60 @@
+<div acme-navbar></div>
+
+<div class="grid">
+	<div class="row center-xs" ng-controller="VerExpedienteController">
+		<div class="col xs-11 m-9">
+		  <h1 class="principal-title">Expediente {{ctrl.expediente_id}}</h1>
+
+		  <div class="col-container">
+			<table class="data-table">
+			  <tr>
+				<th>Número</th>
+				<th>Fecha</th>
+				<th>Solicitante</th>
+      </tr>
+      <tr>
+				<td class="cols-table">{{ctrl.id}}</td>
+				<td class="cols-table">{{ctrl.fecha}}</td>
+				<td class="cols-table">{{ctrl.solicitante}}</td>
+			  </tr>
+			</table>
+		  </div>
+
+      <div class="opinion-container">
+        <h2>Observación</h2>
+        <p>{{ctrl.observacion}}</p>
+      </div>
+
+      <div class="opinion-container">
+        <h2>Dictamen</h2>
+        <table class="data-table">
+          <tr>
+            <td><strong>Asunto</strong></td>
+            <td>{{ctrl.dictamen.subject}}</td>
+          </tr>
+          <tr>
+            <td><strong>Antecedente Referencial</strong></td>
+            <td>{{ctrl.dictamen.reference_ant}}</td>
+          </tr>
+          <tr>
+            <td><strong>Antecedente Documental</strong></td>
+            <td>{{ctrl.dictamen.documental_ant}}</td>
+          </tr>
+          <tr>
+            <td><strong>Consideración Técnica</strong></td>
+            <td>{{ctrl.dictamen.technical_consideration}}</td>
+          </tr>
+          <tr>
+            <td><strong>Dictamen Técnico</strong></td>
+            <td>{{ctrl.dictamen.technical_dictum}}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="opinion-container">
+        <h2>Providencia</h2>
+        <p>{{ctrl.providencia.document}}</p>
+      </div>
+		</div>
+	</div>
+</div>

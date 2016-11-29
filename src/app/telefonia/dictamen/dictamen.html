@@ -1,0 +1,44 @@
+<div acme-navbar></div>
+
+<div class="grid">
+	<div class="row center-xs">
+		<div class="col xs-11 m-9">
+			<div class="body" ng-controller="EditarExpedienteController">
+			  <h2 class="principal-title">Dictamen de expediente {{ctrl.expediente_id}}</h2>
+
+              <div class="info-container">
+                <table class="data-table">
+                  <tr>
+                    <th>Número</th>
+                    <th>Fecha</th>
+                    <th>Solicitante</th>
+                  </tr>
+                  <tr>
+                    <td class="cols-table">{{ctrl.id}}</td>
+                    <td class="cols-table">{{ctrl.fecha}}</td>
+                    <td class="cols-table">{{ctrl.solicitante}}</td>
+                  </tr>
+                </table>
+              </div>
+
+			  <div class="form_container">
+				<form method="post">
+				  <label>
+					<h3>Dictamen</h3>
+					<textarea ui-tinymce="ctrl.tinymce_options" ng-model="ctrl.tinymce_model_dictamen"></textarea>
+				  </label>
+				  <br>
+				  <label>
+					<h3>Providencia</h3>
+					<textarea ui-tinymce="ctrl.tinymce_options" ng-model="ctrl.tinymce_model_providencia"></textarea>
+				  </label>
+				  <br>
+				  <input type="submit" ng-click="ctrl.upload_info()" id="submit" value="Actualizar"/>
+
+				</form>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+

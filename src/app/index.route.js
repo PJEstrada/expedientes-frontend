@@ -43,6 +43,38 @@
         templateUrl: 'app/judicial/expediente/editar_expediente/editar_expediente.html',
         controller: 'EditarExpedienteController',
         controllerAs: 'ctrl'
+      })
+
+      // Telefonia
+      .state('telefonia_home', {
+        url: '/telefonia',
+        templateUrl: 'app/telefonia/main.html',
+        controller: 'TelefoniaMainController',
+        controllerAs: 'ctrl'
+      })
+      .state('telefonia_ingreso_expediente', {
+        url: '/telefonia_ingreso_expediente',
+        templateUrl: 'app/telefonia/expediente/ingresar_expediente/ingresar_expediente.html',
+        controller: 'TelefoniaIngresarExpedienteController',
+        controllerAs: 'ctrl'
+      })
+      .state('telefonia_ver_expediente', {
+        url: '/telefonia_ver_expediente/{id}',
+        templateUrl: 'app/telefonia/expediente/ver_expediente/ver_expediente.html',
+        controller: 'TelefoniaVerExpedienteController',
+        controllerAs: 'ctrl'
+      })
+      .state('telefonia_editar_expediente', {
+        url: '/telefonia_editar_expediente/{id}',
+        templateUrl: 'app/telefonia/expediente/editar_expediente/editar_expediente.html',
+        controller: 'TelefoniaEditarExpedienteController',
+        controllerAs: 'ctrl'
+      })
+      .state('telefonia_dictamen', {
+        url: '/telefonia_dictamen/{id}',
+        templateUrl: 'app/telefonia/dictamen/dictamen.html',
+        controller: 'TelefoniaDictamenController',
+        controllerAs: 'ctrl'
       });
 
 

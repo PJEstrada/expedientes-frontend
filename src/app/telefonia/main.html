@@ -1,0 +1,58 @@
+<div acme-navbar></div>
+<div class="grid">
+	<div class="row center-xs" ng-controller="MainController" ng-if="ctrl.isLoggedIn()">
+		<div class="col xs-11 m-9">
+			<h2 class="principal-title">Análisis de Telefonía</h2>
+			<div class="col-container">
+
+			  <table class="data-table">
+				<tr>
+				  <th>Número</th>
+				  <th>Fecha de Ingreso</th>
+				  <th>Solicitante</th>
+				</tr>
+				<tr ng-repeat="exp in ctrl.expedientes">
+				  <td class="cols-table">{{exp.case_number}}</td>
+				  <td class="cols-table">{{exp.entry_date}}</td>
+				  <td class="cols-table">{{exp.solicitante}}</td>
+				  <td class="buttons-table">
+					<a
+						we-button
+						icon="file-text-o"
+						size="small"
+						color="success"
+						ui-sref="telefonia_ver_expediente({id: exp.id})">Ver</a>
+					<a
+						we-button
+						icon="edit"
+						size="small"
+						color="info"
+						ui-sref="telefonia_editar_expediente({id: exp.id})">Editar</a>
+          <a
+            we-button
+            icon="file-o"
+            size="small"
+            color="gray"
+            ui-sref="telefonia_dictamen({id: exp.id})">Dictamen</a>
+					<a
+						we-button
+						icon="remove"
+						size="small"
+						color="danger"
+						ui-sref="telefonia_home"
+						ng-click="ctrl.remove_expediente(exp.id)">Eliminar</a>
+				  </td>
+				</tr>
+			  </table>
+
+			  <div class="row left-xs">
+				<div class="final-link">
+				  <a class="a-final" ui-sref="telefonia_ingreso_expediente()">Ingreso Expediente</a>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
